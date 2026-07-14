@@ -589,9 +589,18 @@ $("addRow").addEventListener("click",()=>{
 });
 
 $("exportJson").addEventListener("click",()=>{
+  const fname="deal_tracker_"+new Date().toISOString().slice(0,10)+".json";
   const blob=new Blob([JSON.stringify(deals,null,1)],{type:"application/json"});
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);
-  a.download="deal_tracker_"+new Date().toISOString().slice(0,10)+".json";a.click();
+  a.download=fname;a.click();
+  // Ouvre aussi le client mail (page statique : pièce jointe à ajouter à la main)
+  const subject="Deal tracker — "+new Date().toISOString().slice(0,10);
+  const body="JSON exporté : "+fname+" ("+deals.length+" deals).\n\n"
+    +"Pense à joindre le fichier "+fname+" (téléchargé) à ce mail.";
+  const to="fx.baud@bgam-uk.com";
+  location.href="mailto:"+encodeURIComponent(to)
+    +"?subject="+encodeURIComponent(subject)
+    +"&body="+encodeURIComponent(body);
 });
 $("importBtn").addEventListener("click",()=>$("importFile").click());
 function migrate(arr){
