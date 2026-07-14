@@ -87,12 +87,25 @@
 </header>
 
 <div class="tabs">
-  <div class="tab active" data-view="emea">🇪🇺 EMEA</div>
+  <div class="tab active" data-view="news">📰 Market Pulse</div>
+  <div class="tab" data-view="emea">🇪🇺 EMEA</div>
   <div class="tab" data-view="us">🇺🇸 US</div>
 </div>
 
+<!-- ========================= MARKET PULSE ========================= -->
+<section class="view active" id="view-news">
+  <div class="sub-h" id="news_asof" style="margin-bottom:16px"></div>
+  <h2 class="sec">The market in numbers <span class="mut">· H1 2026</span></h2>
+  <ul class="high" id="news_pulse"></ul>
+  <h2 class="sec">New deals this week</h2>
+  <div class="tblwrap"><table class="wide"><thead><tr><th>Target</th><th>Acquirer / vehicle</th><th class="num">Value</th><th>Note</th></tr></thead><tbody id="news_deals"></tbody></table></div>
+  <h2 class="sec">This week's catalysts</h2>
+  <div class="tblwrap"><table><thead><tr><th>Date</th><th>Event</th></tr></thead><tbody id="news_cat"></tbody></table></div>
+  <div class="sub-h" id="news_src" style="margin-top:16px;line-height:1.6"></div>
+</section>
+
 <!-- ============================ EMEA ============================ -->
-<section class="view active" id="view-emea">
+<section class="view" id="view-emea">
   <div class="strip" id="e_kpis"></div>
 
   <h2 class="sec">Key Takeaways</h2>
@@ -301,6 +314,50 @@ const DATA = {
         ['Total',80,'100%',742650,'100%']
       ]
     }
+  },
+
+  /* ----------------------------- MARKET PULSE ----------------------------- */
+  /* Bloc HEBDO — mets à jour ceci chaque semaine à partir du mail Bloomberg
+     "M&A Weekly Agenda" (+ tout article de contexte). FAITS uniquement,
+     reformulés (pas de prose recopiée), sources attribuées. */
+  news: {
+    asOf: 'Week of 7 July 2026',
+    // Faits macro (HTML autorisé). Source entre <span class="mut">…</span>.
+    pulse: [
+      'Record first half: <b>$2.83tn</b> of M&A announced globally in H1 2026, <span class="k">+49%</span> YoY — the strongest H1 on record, past the $2.74tn of H1 2021. <span class="mut">(LSEG)</span>',
+      'A record <b>47 deals above $10bn</b> (+62% YoY) — value concentrated in the very largest transactions.',
+      'Deal <b>count fell ~9%</b> (lowest since 2020) even as value rose: activity is skewing to mega-caps.',
+      'Main drivers: the <b>AI build-out</b> (data-centre power demand), lighter US antitrust enforcement, and a race for scale.',
+      'Busiest sectors: <b>Technology</b>, then Energy &amp; Power, then Industrials.',
+      'By value: US <span class="k">+77%</span>, <b>Europe +105%</b>, Asia-Pacific −2.4%. European volumes −14.2% (Iran-war impact), yet Europe\'s share of global target volume ~25% — high end of range.',
+      '<b>UK inbound surge</b>: foreign buyers targeting London-listed names on a perceived valuation discount, industrials especially.',
+      '<b>Sponsors re-engaging</b>: PE-backed M&A <span class="k">+54%</span> to $601bn — supportive for exits.',
+      'European strategic M&A off to a record start: $390bn targeting European firms YTD; European corporates announced $140bn of deals abroad. <span class="mut">(Goldman Sachs)</span>',
+      'European companies tapping <b>US SPACs</b> again: 9 startups, ≥$12.3bn combined — highest annual tally since 2021.'
+    ],
+    // Nouveaux deals de la semaine : [cible, acquéreur/véhicule, montant, note]
+    newDeals: [
+      ['Cognite','Schneider Electric','$3.1bn','All-cash, from Aker ASA — industrial data &amp; AI software'],
+      ['David Brown Defence','Renk Group','$0.2–0.25bn','Adds naval exposure (privately held target)'],
+      ['BT Group ⇄ Verizon','International JV','~$4bn rev.','Verizon makes a $625m equalization payment to BT; carriers refocus on home markets'],
+      ['Infracore','IPO — Zurich','SFr 200m','First major Swiss IPO since SMG (Sept); order period to Jul 7'],
+      ['KNDS','IPO — postponed','—','Franco-German defence listing put off after investors got cold feet']
+    ],
+    // Agenda de la semaine : [date, événement]
+    catalysts: [
+      ['Jul 5','EasyJet — Castlelake PUSU extended deadline'],
+      ['Jul 6','Subsea 7 / Saipem — Australia ACCC expiry'],
+      ['Jul 6','Tate &amp; Lyle — scheme document (approx.)'],
+      ['Jul 7','Marks &amp; Spencer — AGM'],
+      ['Jul 8','DCC — KKR/ECP PUSU deadline'],
+      ['Jul 8','Gamma Communications — Epiris PUSU deadline'],
+      ['Jul 8','Commerzbank / UniCredit — exchange-offer result (additional period)'],
+      ['Jul 8','Vivendi / Bolloré — Paris Court of Appeals decision (expected)'],
+      ['Jul 9','Spire Healthcare — Toscafund PUSU deadline'],
+      ['Jul 9','BT / Pets at Home / Alstom — AGM'],
+      ['Jul 10','C&amp;C / Ubisoft — AGM']
+    ],
+    sources: 'Facts compiled from FT / LSEG (H1 2026 review), the Bloomberg M&A Weekly Agenda (M. Msika &amp; L. Stamm) and Goldman Sachs. Facts only — not affiliated with or endorsed by these sources.'
   }
 };
 
@@ -340,7 +397,9 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
 function buildCharts(region){
   if(built.has(region)) return;
   built.add(region);
-  (region==='emea' ? buildEmeaCharts : buildUsCharts)();
+  if(region==='emea') buildEmeaCharts();
+  else if(region==='us') buildUsCharts();
+  // 'news' : pas de graphes
 }
 
 /* generic renderers */
@@ -429,7 +488,18 @@ renderUniv('u_cons', U.universe.cons);
 renderUniv('u_acq',  U.universe.acq);
 renderUniv('u_appr', U.universe.appr);
 
-buildCharts('emea'); // tab visible on load
+/* ---- Market Pulse (weekly) ---- */
+function renderNews(){
+  const N = DATA.news;
+  $('news_asof').innerHTML = `Updated <span class="mono">${N.asOf}</span>`;
+  renderHigh('news_pulse', N.pulse);
+  $('news_deals').innerHTML = N.newDeals.map(d=>
+    `<tr><td class="tgt">${d[0]}</td><td>${d[1]}</td><td class="num amb">${d[2]}</td><td class="mut">${d[3]}</td></tr>`).join('');
+  $('news_cat').innerHTML = N.catalysts.map(c=>
+    `<tr><td class="mono mut" style="white-space:nowrap">${c[0]}</td><td>${c[1]}</td></tr>`).join('');
+  $('news_src').innerHTML = N.sources;
+}
+renderNews(); // Market Pulse is the default visible tab; EMEA/US charts build lazily on tab click
 </script>
 </body>
 </html>
