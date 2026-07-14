@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M&A Review 2Q26 — EMEA & US (UBS Special Situations)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#0d0f12; --panel:#15181d; --panel2:#1a1e24; --border:#262b33;
+    --txt:#d8dce2; --muted:#7a828e; --amber:#f0a830; --amber-dim:rgba(240,168,48,.14);
+    --green:#4caf7d; --red:#e05c5c; --blue:#5b8dd6; --purple:#a678d6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans',sans-serif;font-size:13px;padding:28px 32px 60px}
+  .mono{font-family:'IBM Plex Mono',monospace}
+
+  header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--border);padding-bottom:14px;margin-bottom:18px;gap:12px;flex-wrap:wrap}
+  h1{font-size:17px;font-weight:600;letter-spacing:.4px}
+  h1 span{color:var(--amber)}
+  .sub-h{color:var(--muted);font-size:12px}
+  a.back{color:var(--blue);text-decoration:none;font-size:12px}
+  a.back:hover{color:var(--amber)}
+
+  .tabs{display:flex;gap:8px;margin-bottom:20px}
+  .tab{background:var(--panel2);color:var(--muted);border:1px solid var(--border);border-radius:5px;padding:8px 18px;font-size:13px;cursor:pointer;font-weight:500;letter-spacing:.3px}
+  .tab:hover{border-color:var(--amber);color:var(--txt)}
+  .tab.active{background:var(--amber-dim);border-color:var(--amber);color:var(--amber)}
+
+  .view{display:none}
+  .view.active{display:block}
+
+  .strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:22px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:12px 14px}
+  .card .lbl{color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+  .card .val{font-family:'IBM Plex Mono',monospace;font-size:19px;color:var(--amber)}
+  .card .sub{color:var(--muted);font-size:11px;margin-top:3px}
+  .card.pos .val{color:var(--green)} .card.neg .val{color:var(--red)}
+
+  h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.9px;color:var(--amber);margin:26px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+
+  .charts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .chartpanel{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:16px}
+  .chartpanel h3{font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:4px}
+  .chartpanel .note{font-size:10.5px;color:#5a626e;margin-bottom:12px}
+  .chartbox{height:280px;position:relative}
+
+  ul.high{list-style:none;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:14px 16px;columns:2;column-gap:34px}
+  ul.high li{margin-bottom:9px;padding-left:16px;position:relative;line-height:1.5;break-inside:avoid}
+  ul.high li:before{content:"▸";color:var(--amber);position:absolute;left:0}
+  ul.high li b{color:var(--txt);font-weight:600}
+  .k{font-family:'IBM Plex Mono',monospace;color:var(--amber)}
+
+  .tblwrap{overflow-x:auto;border:1px solid var(--border);border-radius:6px;background:var(--panel)}
+  table{width:100%;border-collapse:collapse}
+  table.wide{min-width:960px}
+  th{font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:9px 10px;border-bottom:1px solid var(--border);white-space:nowrap;background:var(--panel2)}
+  td{padding:8px 10px;border-bottom:1px solid #1e232b;vertical-align:middle;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  tbody tr:hover td{background:#191d23}
+  td.num,th.num{font-family:'IBM Plex Mono',monospace;text-align:right}
+  td.tgt{font-weight:600}
+  tr.tot td{border-top:1px solid var(--border);font-weight:600;background:var(--panel2)}
+  .pos{color:var(--green)} .neg{color:var(--red)} .amb{color:var(--amber)} .mut{color:var(--muted)}
+  .pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;border:1px solid var(--border);border-radius:9px;padding:1px 7px}
+  .pill.y{color:var(--green);border-color:#2e4d3d} .pill.n{color:var(--muted)}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  footer{margin-top:30px;color:var(--muted);font-size:11px;line-height:1.7;border-top:1px solid var(--border);padding-top:14px}
+  footer b{color:#9aa2ae}
+
+  @media(max-width:1000px){.charts,.two{grid-template-columns:1fr} ul.high{columns:1}}
+  @media(max-width:700px){body{padding:12px}.strip{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>M&amp;A REVIEW <span>2Q26 //</span> EMEA &amp; US</h1>
+    <div class="sub-h">UBS Special Situations Desk · juillet 2026 · <span class="mono">sales &amp; trading commentary, not research</span></div>
+  </div>
+  <a class="back" href="./index.html">← Deal Tracker</a>
+</header>
+
+<div class="tabs">
+  <div class="tab active" data-view="emea">🇪🇺 EMEA</div>
+  <div class="tab" data-view="us">🇺🇸 US</div>
+</div>
+
+<!-- ============================ EMEA ============================ -->
+<section class="view active" id="view-emea">
+
+  <div class="strip">
+    <div class="card"><div class="lbl">Deals annoncés</div><div class="val">41</div><div class="sub">dont 28 fermes · record trimestriel</div></div>
+    <div class="card"><div class="lbl">Valeur annoncée</div><div class="val">$152bn</div><div class="sub">plus haut historique · ferme $75bn</div></div>
+    <div class="card"><div class="lbl">Taille moy. ferme</div><div class="val">$2.7bn</div><div class="sub">vs $6.6bn T1 · moy. hist. $2.1bn</div></div>
+    <div class="card"><div class="lbl">Prime moyenne</div><div class="val">33%</div><div class="sub">en ligne avec l'historique</div></div>
+    <div class="card"><div class="lbl">Cash (nombre)</div><div class="val">83%</div><div class="sub">58% en valeur</div></div>
+    <div class="card"><div class="lbl">UK (nombre)</div><div class="val">49%</div><div class="sub">1ère géo · 37% en valeur</div></div>
+    <div class="card"><div class="lbl">Durée moy.</div><div class="val">151j</div><div class="sub">plus bas depuis T4 2024</div></div>
+    <div class="card neg"><div class="lbl">Opposition actio.</div><div class="val">15%</div><div class="sub">&gt; moy. hist. 11% · 0 hostile</div></div>
+  </div>
+
+  <h2 class="sec">Points clés</h2>
+  <ul class="high">
+    <li>Fort rebond de l'activité après un T1 anormalement faible : <b>41 deals</b> (28 fermes), nouveau record trimestriel par le nombre.</li>
+    <li>Valeur ferme dominée par <b>BMPS</b> et <b>Intertek</b> (seuls &gt;$10bn), <span class="k">64%</span> de la valeur ferme totale à eux deux.</li>
+    <li>Deals &gt;$10bn non fermes en fin de trimestre : <b>Akzo Nobel, Delivery Hero, Segro, UMG</b>.</li>
+    <li>Primes largement dispersées ; situations à prime faible : <b>Kontron 4.9%</b> et <b>Hugo Boss 4.3%</b> (offres obligatoires).</li>
+    <li>Réaction cours acquéreur J+1 : <span class="k">+0.4%</span> en cash, <span class="k">−2.2%</span> en actions/mixte.</li>
+    <li><b>4 contre-offres</b> (10% des deals) ; taux de surenchère 7% (hist. 4%), amélioration moyenne 7% (hist. 10%).</li>
+    <li>YTD, les <b>Financials</b> pèsent <span class="k">39%</span> de la valeur, loin devant Industrials à 16%.</li>
+    <li>Activité sponsors 46% du nombre / 29% de la valeur : <b>Recordati, Intertek, DCC</b>.</li>
+    <li>Taux d'échec 12.2% (tous au stade pré-event) ; seul <b>Senior/Advent</b> stoppé après offre concurrente. P&amp;L moyen sur deals cassés −11.6%.</li>
+  </ul>
+
+  <h2 class="sec">Graphiques</h2>
+  <div class="charts">
+    <div class="chartpanel">
+      <h3>Spreads non annualisés — progression YTD</h3>
+      <div class="note">Deals fermes &gt;$1bn · plancher 0% · début d'année → fin juin</div>
+      <div class="chartbox"><canvas id="e_spread"></canvas></div>
+    </div>
+    <div class="chartpanel">
+      <h3>Prime moyenne — dispersion</h3>
+      <div class="note">Sélection de situations 2Q26 vs prime moyenne du trimestre (33%)</div>
+      <div class="chartbox"><canvas id="e_prem"></canvas></div>
+    </div>
+    <div class="chartpanel">
+      <h3>Mix de contrepartie — 2Q26</h3>
+      <div class="note">Cash vs actions/mixte, par nombre et par valeur</div>
+      <div class="chartbox"><canvas id="e_cons"></canvas></div>
+    </div>
+    <div class="chartpanel">
+      <h3>Géographie cible — 2Q26 vs YTD</h3>
+      <div class="note">Part de la valeur annoncée (%)</div>
+      <div class="chartbox"><canvas id="e_geo"></canvas></div>
+    </div>
+  </div>
+
+  <h2 class="sec">Situations nommées</h2>
+  <div class="tblwrap">
+    <table class="wide">
+      <thead><tr><th>Catégorie</th><th>Situations</th></tr></thead>
+      <tbody>
+        <tr><td class="tgt">Ferme &gt;$10bn</td><td>BMPS · Intertek</td></tr>
+        <tr><td class="tgt">Pré-event &gt;$10bn (non ferme)</td><td>Akzo Nobel · Delivery Hero · Segro · UMG</td></tr>
+        <tr><td class="tgt">Financials</td><td>BMPS · PTSB</td></tr>
+        <tr><td class="tgt">Deals sponsors</td><td>Recordati · Intertek · DCC</td></tr>
+        <tr><td class="tgt">Primes faibles</td><td>Kontron (4.9%) · Hugo Boss (4.3%)</td></tr>
+        <tr><td class="tgt">Contre-offre / échec</td><td>Senior / Advent (stoppé après offre concurrente)</td></tr>
+        <tr><td class="tgt">Deals longs bouclés au T2</td><td>JUST LN · IDOX LN</td></tr>
+        <tr><td class="tgt">Interloper retiré</td><td>Akzo Nobel (offre potentielle retirée, en cours d'acquisition d'Axalta)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================ US ============================ -->
+<section class="view" id="view-us">
+
+  <div class="strip">
+    <div class="card"><div class="lbl">Deals annoncés</div><div class="val">39</div><div class="sub">−3% T/T · +26% A/A · 73e pct.</div></div>
+    <div class="card pos"><div class="lbl">Valeur annoncée</div><div class="val">$324bn</div><div class="sub">+74% T/T · +297% A/A · 92e pct.</div></div>
+    <div class="card"><div class="lbl">Taille moyenne</div><div class="val">$8.3bn</div><div class="sub">vs $4.7bn T1 · +80% vs moy.</div></div>
+    <div class="card"><div class="lbl">Valeur ferme</div><div class="val">$252bn</div><div class="sub">32 deals · +44% T/T</div></div>
+    <div class="card"><div class="lbl">Prime stratég.</div><div class="val">31%</div><div class="sub">vs 40% T1 · non-stratég. 48%</div></div>
+    <div class="card"><div class="lbl">Cash (nombre)</div><div class="val">74%</div><div class="sub">48% en valeur · actions ↑ 52%</div></div>
+    <div class="card"><div class="lbl">Acheteurs non-US</div><div class="val">31%</div><div class="sub">nombre · 16% en valeur</div></div>
+    <div class="card neg"><div class="lbl">Sponsors (valeur)</div><div class="val">5%</div><div class="sub">plus bas ~10 ans · 22% du nombre</div></div>
+  </div>
+
+  <h2 class="sec">Points clés</h2>
+  <ul class="high">
+    <li>Activité stable en nombre mais <b>très forte en valeur</b> : $324bn annoncés, au 92e percentile depuis 1998.</li>
+    <li>Répartition très biaisée vers les <b>grands deals</b> : large/mid/small = 44% / 33% / 23% (hist. 21 / 46 / 33).</li>
+    <li><b>Communications</b> = secteur le plus actif en valeur (31%) ; <b>consumer non-cyclical</b> le plus actif en nombre (38%).</li>
+    <li>Le <b>stock</b> monte à <span class="k">52%</span> de la valeur (vs moy. 33% depuis 2Q21) ; cash reste majoritaire en nombre.</li>
+    <li>Primes : all-cash stratég. <span class="k">35%</span>, all-stock stratég. <span class="k">6%</span> (vs hist. 43% / 24%).</li>
+    <li>Cross-border en baisse : non-US 16% valeur / 31% nombre (vs 32% / 35% au T1).</li>
+    <li>Spread annualisé plafonné médian <span class="k">3.6%</span> (vs 4.3% au T1) ; multiples EV/EBITDA en ligne avec la moyenne 2006-2026.</li>
+    <li>Environnement bénin : <b>0</b> price cut, <b>0</b> opposition actionnaire (deals fermes), <b>0</b> termination au T2.</li>
+    <li>1H26 : $510bn annoncés (79 deals) vs $192bn (62) en 1H25 ; ferme $427bn (69) vs $162bn (52).</li>
+  </ul>
+
+  <h2 class="sec">Graphiques</h2>
+  <div class="charts">
+    <div class="chartpanel">
+      <h3>Activité — valeur &amp; nombre</h3>
+      <div class="note">Annoncés vs fermes · $bn (barres) / # deals (ligne)</div>
+      <div class="chartbox"><canvas id="u_act"></canvas></div>
+    </div>
+    <div class="chartpanel">
+      <h3>Primes moyennes (%)</h3>
+      <div class="note">1Q26 vs 2Q26 vs moyenne historique</div>
+      <div class="chartbox"><canvas id="u_prem"></canvas></div>
+    </div>
+    <div class="chartpanel">
+      <h3>Spreads non annualisés — trajectoire</h3>
+      <div class="note">Univers de deals · 31 déc. → 2 avr. → 2 juil. 2026</div>
+      <div class="chartbox"><canvas id="u_spread"></canvas></div>
+    </div>
+    <div class="chartpanel">
+      <h3>Contrepartie &amp; origine acheteur</h3>
+      <div class="note">Part 2Q26 (%) · cash/stock &amp; US/non-US</div>
+      <div class="chartbox"><canvas id="u_mix"></canvas></div>
+    </div>
+  </div>
+
+  <h2 class="sec">Top 10 deals fermes — 2Q26 <span class="mut" style="text-transform:none;letter-spacing:0">(74% de la valeur ferme du trimestre)</span></h2>
+  <div class="tblwrap">
+    <table class="wide">
+      <thead><tr>
+        <th>Date</th><th>Cible</th><th>Acquéreur</th><th>Pays</th>
+        <th class="num">Valeur $m</th><th>Contrepartie</th><th class="num">Prime</th>
+        <th class="num">Deal/Acq.</th><th>Secteur</th><th>Vote acq.</th><th>Stratég.</th>
+      </tr></thead>
+      <tbody id="u_top10"></tbody>
+    </table>
+  </div>
+
+  <h2 class="sec">Univers de deals en cours <span class="mut" style="text-transform:none;letter-spacing:0">(au 2 juil. 2026 · 80 deals · $742.7bn)</span></h2>
+  <div class="two">
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Secteur cible</th><th class="num"># deals</th><th class="num">%</th><th class="num">Valeur $m</th><th class="num">%</th></tr></thead>
+        <tbody id="u_sect"></tbody>
+      </table>
+    </div>
+    <div>
+      <div class="tblwrap" style="margin-bottom:14px">
+        <table>
+          <thead><tr><th>Contrepartie</th><th class="num"># deals</th><th class="num">%</th><th class="num">Valeur $m</th><th class="num">%</th></tr></thead>
+          <tbody id="u_cons"></tbody>
+        </table>
+      </div>
+      <div class="tblwrap" style="margin-bottom:14px">
+        <table>
+          <thead><tr><th>Type acquéreur</th><th class="num"># deals</th><th class="num">%</th><th class="num">Valeur $m</th><th class="num">%</th></tr></thead>
+          <tbody id="u_acq"></tbody>
+        </table>
+      </div>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>Approche</th><th class="num"># deals</th><th class="num">%</th><th class="num">Valeur $m</th><th class="num">%</th></tr></thead>
+          <tbody id="u_appr"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <b>Sources :</b> UBS Special Situations Desk — « EMEA M&amp;A Review: 2Q26 » (C. Parkin &amp; S. Vora) et « US M&amp;A Review: 2Q26 » (E. Ergin), juillet 2026 ; données Bloomberg, corporate filings.<br>
+  <b>Périmètre :</b> EMEA — cibles cotées européennes, deal ≥ $100m, 1Q23-2Q26. US — fusions &gt; $400m d'equity value, cibles cotées US.<br>
+  <b>Note :</b> commentaire d'un desk sales &amp; trading, pas un produit de la recherche UBS. Certaines séries reprennent les chiffres exacts des decks ; à réconcilier avant tout usage. For institutional investors only.
+</footer>
+
+<script>
+Chart.defaults.color = '#7a828e';
+Chart.defaults.borderColor = '#262b33';
+Chart.defaults.font.family = "'IBM Plex Sans', sans-serif";
+Chart.defaults.font.size = 11;
+const C = {amber:'#f0a830', blue:'#5b8dd6', green:'#4caf7d', red:'#e05c5c', purple:'#a678d6', mut:'#7a828e'};
+const grid = {grid:{color:'#1e232b'}};
+const pct = {ticks:{callback:v=>v+'%'}, ...grid};
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById('view-'+t.dataset.view).classList.add('active');
+}));
+
+/* ==================== EMEA charts ==================== */
+new Chart(e_spread,{type:'bar',data:{
+  labels:['Moyenne','Médiane','Pondéré valeur'],
+  datasets:[
+    {label:'Début 2026',data:[3.1,3.36,4.28],backgroundColor:C.mut},
+    {label:'Fin juin 2026',data:[3.67,2.94,3.93],backgroundColor:C.amber}
+  ]},options:{maintainAspectRatio:false,scales:{y:{beginAtZero:true,...pct},x:grid},plugins:{legend:{position:'bottom'}}}});
+
+new Chart(e_prem,{type:'bar',data:{
+  labels:['Kontron','Hugo Boss','Moy. 2Q26'],
+  datasets:[{label:'Prime %',data:[4.9,4.3,33],backgroundColor:[C.red,C.red,C.amber]}]
+  },options:{maintainAspectRatio:false,indexAxis:'y',scales:{x:{beginAtZero:true,...pct},y:grid},plugins:{legend:{display:false}}}});
+
+new Chart(e_cons,{type:'bar',data:{
+  labels:['Par nombre','Par valeur'],
+  datasets:[
+    {label:'Cash',data:[83,58],backgroundColor:C.blue},
+    {label:'Actions / mixte',data:[17,42],backgroundColor:C.purple}
+  ]},options:{maintainAspectRatio:false,scales:{x:{stacked:true,...grid},y:{stacked:true,...pct}},plugins:{legend:{position:'bottom'}}}});
+
+new Chart(e_geo,{type:'bar',data:{
+  labels:['UK','Italie','Allemagne'],
+  datasets:[
+    {label:'2Q26',data:[37,29,null],backgroundColor:C.amber},
+    {label:'YTD 2026',data:[36,24,19],backgroundColor:C.blue}
+  ]},options:{maintainAspectRatio:false,scales:{y:{beginAtZero:true,...pct},x:grid},plugins:{legend:{position:'bottom'}}}});
+
+/* ==================== US charts ==================== */
+new Chart(u_act,{data:{
+  labels:['2Q25','1Q26','2Q26'],
+  datasets:[
+    {type:'bar',label:'Valeur annoncée $bn',data:[82,186,324],backgroundColor:C.blue,yAxisID:'y'},
+    {type:'bar',label:'Valeur ferme $bn',data:[75,175,252],backgroundColor:C.amber,yAxisID:'y'},
+    {type:'line',label:'# deals annoncés',data:[31,40,39],borderColor:C.green,backgroundColor:C.green,yAxisID:'y1',tension:.3}
+  ]},options:{maintainAspectRatio:false,scales:{
+    y:{beginAtZero:true,position:'left',title:{display:true,text:'$bn'},...grid},
+    y1:{beginAtZero:true,position:'right',title:{display:true,text:'# deals'},grid:{drawOnChartArea:false}},
+    x:grid},plugins:{legend:{position:'bottom'}}}});
+
+new Chart(u_prem,{type:'bar',data:{
+  labels:['Stratégique','Non-stratég.','All-cash strat.','All-stock strat.'],
+  datasets:[
+    {label:'1Q26',data:[40,28,50,18],backgroundColor:C.mut},
+    {label:'2Q26',data:[31,48,35,6],backgroundColor:C.amber},
+    {label:'Hist.',data:[35,32,43,24],backgroundColor:C.blue}
+  ]},options:{maintainAspectRatio:false,scales:{y:{beginAtZero:true,...pct},x:grid},plugins:{legend:{position:'bottom'}}}});
+
+new Chart(u_spread,{data:{
+  labels:['31 déc. 25','2 avr. 26','2 juil. 26'],
+  datasets:[
+    {type:'line',label:'Moyenne',data:[2.5,2.8,4.5],borderColor:C.amber,backgroundColor:C.amber,tension:.3},
+    {type:'line',label:'Médiane',data:[0.9,1.1,1.2],borderColor:C.blue,backgroundColor:C.blue,tension:.3},
+    {type:'line',label:'Pondéré cap.',data:[3.4,5.4,6.3],borderColor:C.green,backgroundColor:C.green,tension:.3}
+  ]},options:{maintainAspectRatio:false,scales:{y:{beginAtZero:true,...pct},x:grid},plugins:{legend:{position:'bottom'}}}});
+
+new Chart(u_mix,{type:'bar',data:{
+  labels:['Cash','Stock','Acq. US','Acq. non-US'],
+  datasets:[
+    {label:'Par valeur',data:[48,52,84,16],backgroundColor:C.amber},
+    {label:'Par nombre',data:[74,26,69,31],backgroundColor:C.blue}
+  ]},options:{maintainAspectRatio:false,scales:{y:{beginAtZero:true,...pct},x:grid},plugins:{legend:{position:'bottom'}}}});
+
+/* ==================== US tables ==================== */
+const top10 = [
+  ['5/18/26','Dominion Energy','NextEra Energy','US',67368,'Cash & Stock','23.7%','35%','Utilities',1,1],
+  ['5/21/26','Equity Residential','AvalonBay Communities','US',25115,'Stock','0.8%','97%','Real Estate',1,1],
+  ['6/15/26','Roku','Fox Corp','US',24885,'Cash & Stock','35.6%','95%','Communication Svcs',1,1],
+  ['4/20/26','TopBuild','QXO','US',14324,'Cash or Stock','23.1%','79%','Consumer Disc.',1,1],
+  ['6/25/26','Bio-Techne','Merck KGaA','GE',11539,'Cash','24.0%','17%','Health Care',0,1],
+  ['4/14/26','Globalstar','Amazon.com','US',10997,'Cash or Stock','55.1%','0%','Communication Svcs',0,1],
+  ['6/22/26','Apogee Therapeutics','AbbVie','US',10912,'Cash','49.5%','3%','Health Care',0,1],
+  ['6/9/26','Nuvalent','GSK plc','GB',10642,'Cash','40.1%','10%','Health Care',0,1],
+  ['6/22/26','Arcosa','CRH plc','IR',7438,'Cash','10.4%','10%','Industrials',0,1],
+  ['6/1/26','Taylor Morrison Home','Berkshire Hathaway','US',6919,'Cash','23.9%','1%','Consumer Disc.',0,1]
+];
+const fmt = n => n.toLocaleString('en-US');
+u_top10.innerHTML = top10.map(d=>`<tr>
+  <td class="mono mut">${d[0]}</td><td class="tgt">${d[1]}</td><td>${d[2]}</td><td class="mut">${d[3]}</td>
+  <td class="num">${fmt(d[4])}</td><td>${d[5]}</td><td class="num amb">${d[6]}</td><td class="num">${d[7]}</td>
+  <td class="mut">${d[8]}</td>
+  <td><span class="pill ${d[9]?'y':'n'}">${d[9]?'Y':'N'}</span></td>
+  <td><span class="pill ${d[10]?'y':'n'}">${d[10]?'Y':'N'}</span></td></tr>`).join('');
+
+const rows = (el,data)=>{document.getElementById(el).innerHTML = data.map(r=>{
+  const tot = /total/i.test(r[0]);
+  return `<tr class="${tot?'tot':''}"><td class="${tot?'':'tgt'}">${r[0]}</td>
+    <td class="num">${r[1]}</td><td class="num mut">${r[2]}</td>
+    <td class="num">${fmt(r[3])}</td><td class="num mut">${r[4]}</td></tr>`;}).join('');};
+
+rows('u_sect',[
+  ['Basic Materials',6,'8%',53978,'7%'],
+  ['Communications',9,'11%',176431,'24%'],
+  ['Consumer, Cyclical',9,'11%',37002,'5%'],
+  ['Consumer, Non-cyclical',17,'21%',97626,'13%'],
+  ['Energy',3,'4%',20927,'3%'],
+  ['Financial',15,'19%',72457,'10%'],
+  ['Industrial',5,'6%',100413,'14%'],
+  ['Technology',10,'13%',85081,'11%'],
+  ['Utilities',6,'8%',98734,'13%'],
+  ['Total',80,'100%',742650,'100%']
+]);
+rows('u_cons',[
+  ['Cash',44,'55%',277747,'37%'],
+  ['Cash & Stock',15,'19%',293807,'40%'],
+  ['Cash or Stock',7,'9%',85284,'11%'],
+  ['Stock',14,'18%',85811,'12%'],
+  ['Total',80,'100%',742650,'100%']
+]);
+rows('u_acq',[
+  ['Strategic',67,'84%',656709,'88%'],
+  ['Non-Strategic',13,'16%',85941,'12%'],
+  ['Total',80,'100%',742650,'100%']
+]);
+rows('u_appr',[
+  ['Definitive',71,'89%',672364,'91%'],
+  ['Unsolicited',9,'11%',70286,'9%'],
+  ['Total',80,'100%',742650,'100%']
+]);
+</script>
+</body>
+</html>
