@@ -594,15 +594,24 @@ $("exportJson").addEventListener("click",()=>{
   const body="JSON exporté : "+fname+" ("+deals.length+" deals).\n\n"
     +"Pense à joindre le fichier "+fname+" (téléchargé) à ce mail.";
   const to="fx.baud@bgam-uk.com";
-  // Ouvre la composition Outlook web dans un nouvel onglet (pas besoin d'un client mail
-  // par défaut). Fait AVANT le téléchargement pour préserver le geste utilisateur (anti-popup).
-  const compose="https://outlook.office.com/mail/deeplink/compose?to="+encodeURIComponent(to)
-    +"&subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
-  window.open(compose,"_blank");
-  // Puis télécharge le JSON (page statique : pièce jointe à ajouter à la main).
-  const blob=new Blob([JSON.stringify(deals,null,1)],{type:"application/json"});
-  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
-  a.download=fname;a.click();
+  const dl=()=>{ // télécharge le JSON (page statique : pièce jointe à ajouter à la main)
+    const blob=new Blob([JSON.stringify(deals,null,1)],{type:"application/json"});
+    const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+    a.download=fname;a.click();
+  };
+  const isMobile=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  if(isMobile){
+    // Mobile : mailto ouvre l'app mail par défaut (l'appli Outlook si définie par défaut).
+    dl();
+    location.href="mailto:"+to+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+  }else{
+    // Desktop : composition Outlook web (nouvel onglet, pas besoin de client par défaut).
+    // window.open AVANT le téléchargement pour préserver le geste utilisateur (anti-popup).
+    const compose="https://outlook.office.com/mail/deeplink/compose?to="+encodeURIComponent(to)
+      +"&subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+    window.open(compose,"_blank");
+    dl();
+  }
 });
 $("importBtn").addEventListener("click",()=>$("importFile").click());
 function migrate(arr){
