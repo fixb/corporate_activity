@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,20 +95,20 @@
 <section class="view active" id="view-emea">
   <div class="strip" id="e_kpis"></div>
 
-  <h2 class="sec">Points clés</h2>
+  <h2 class="sec">Key Takeaways</h2>
   <ul class="high" id="e_high"></ul>
 
-  <h2 class="sec">Graphiques</h2>
+  <h2 class="sec">Charts</h2>
   <div class="charts">
-    <div class="chartpanel"><h3>Spreads non annualisés — progression YTD</h3><div class="note">Deals fermes &gt;$1bn · plancher 0% · début d'année → fin juin</div><div class="chartbox"><canvas id="e_spread"></canvas></div></div>
-    <div class="chartpanel"><h3>Prime moyenne — dispersion</h3><div class="note">Sélection de situations vs prime moyenne du trimestre</div><div class="chartbox"><canvas id="e_prem"></canvas></div></div>
-    <div class="chartpanel"><h3>Mix de contrepartie</h3><div class="note">Cash vs actions/mixte, par nombre et par valeur</div><div class="chartbox"><canvas id="e_cons"></canvas></div></div>
-    <div class="chartpanel"><h3>Géographie cible — trimestre vs YTD</h3><div class="note">Part de la valeur annoncée (%)</div><div class="chartbox"><canvas id="e_geo"></canvas></div></div>
+    <div class="chartpanel"><h3>Non-Annualised Spreads — YTD Progression</h3><div class="note">Definitive deals &gt;$1bn · 0% floor · start of year → end June</div><div class="chartbox"><canvas id="e_spread"></canvas></div></div>
+    <div class="chartpanel"><h3>Premium Dispersion</h3><div class="note">Selected situations vs the quarter's average premium</div><div class="chartbox"><canvas id="e_prem"></canvas></div></div>
+    <div class="chartpanel"><h3>Consideration Mix</h3><div class="note">Cash vs stock/mixed, by count and by value</div><div class="chartbox"><canvas id="e_cons"></canvas></div></div>
+    <div class="chartpanel"><h3>Target Geography — Quarter vs YTD</h3><div class="note">Share of announced deal value (%)</div><div class="chartbox"><canvas id="e_geo"></canvas></div></div>
   </div>
 
-  <h2 class="sec">Situations nommées</h2>
+  <h2 class="sec">Named Situations</h2>
   <div class="tblwrap">
-    <table class="wide"><thead><tr><th>Catégorie</th><th>Situations</th></tr></thead><tbody id="e_named"></tbody></table>
+    <table class="wide"><thead><tr><th>Category</th><th>Situations</th></tr></thead><tbody id="e_named"></tbody></table>
   </div>
 </section>
 
@@ -116,38 +116,38 @@
 <section class="view" id="view-us">
   <div class="strip" id="u_kpis"></div>
 
-  <h2 class="sec">Points clés</h2>
+  <h2 class="sec">Key Takeaways</h2>
   <ul class="high" id="u_high"></ul>
 
-  <h2 class="sec">Graphiques</h2>
+  <h2 class="sec">Charts</h2>
   <div class="charts">
-    <div class="chartpanel"><h3>Activité — valeur &amp; nombre</h3><div class="note">Annoncés vs fermes · $bn (barres) / # deals (ligne)</div><div class="chartbox"><canvas id="u_act"></canvas></div></div>
-    <div class="chartpanel"><h3>Primes moyennes (%)</h3><div class="note">Trimestre précédent vs courant vs moyenne historique</div><div class="chartbox"><canvas id="u_prem"></canvas></div></div>
-    <div class="chartpanel"><h3>Spreads non annualisés — trajectoire</h3><div class="note">Univers de deals · trois relevés</div><div class="chartbox"><canvas id="u_spread"></canvas></div></div>
-    <div class="chartpanel"><h3>Contrepartie &amp; origine acheteur</h3><div class="note">Part du trimestre (%) · cash/stock &amp; US/non-US</div><div class="chartbox"><canvas id="u_mix"></canvas></div></div>
+    <div class="chartpanel"><h3>Deal Activity — Value &amp; Count</h3><div class="note">Announced vs definitive · $bn (bars) / # deals (line)</div><div class="chartbox"><canvas id="u_act"></canvas></div></div>
+    <div class="chartpanel"><h3>Average Premiums (%)</h3><div class="note">Prior vs current quarter vs historical average</div><div class="chartbox"><canvas id="u_prem"></canvas></div></div>
+    <div class="chartpanel"><h3>Non-Annualised Spreads — Trajectory</h3><div class="note">Deal universe · three snapshots</div><div class="chartbox"><canvas id="u_spread"></canvas></div></div>
+    <div class="chartpanel"><h3>Consideration &amp; Buyer Origin</h3><div class="note">Quarter share (%) · cash/stock &amp; US/non-US</div><div class="chartbox"><canvas id="u_mix"></canvas></div></div>
   </div>
 
-  <h2 class="sec" id="u_top10_h">Top 10 deals fermes</h2>
+  <h2 class="sec" id="u_top10_h">Top 10 Definitive Deals</h2>
   <div class="tblwrap">
     <table class="wide">
       <thead><tr>
-        <th>Date</th><th>Cible</th><th>Acquéreur</th><th>Pays</th>
-        <th class="num">Valeur $m</th><th>Contrepartie</th><th class="num">Prime</th>
-        <th class="num">Deal/Acq.</th><th>Secteur</th><th>Vote acq.</th><th>Stratég.</th>
+        <th>Date</th><th>Target</th><th>Acquirer</th><th>Country</th>
+        <th class="num">Value $m</th><th>Consideration</th><th class="num">Premium</th>
+        <th class="num">Deal/Acq.</th><th>Sector</th><th>Acq. vote</th><th>Strategic</th>
       </tr></thead>
       <tbody id="u_top10"></tbody>
     </table>
   </div>
 
-  <h2 class="sec" id="u_univ_h">Univers de deals en cours</h2>
+  <h2 class="sec" id="u_univ_h">Outstanding Deal Universe</h2>
   <div class="two">
     <div class="tblwrap">
-      <table><thead><tr><th>Secteur cible</th><th class="num"># deals</th><th class="num">%</th><th class="num">Valeur $m</th><th class="num">%</th></tr></thead><tbody id="u_sect"></tbody></table>
+      <table><thead><tr><th>Target sector</th><th class="num"># deals</th><th class="num">%</th><th class="num">Value $m</th><th class="num">%</th></tr></thead><tbody id="u_sect"></tbody></table>
     </div>
     <div>
-      <div class="tblwrap" style="margin-bottom:14px"><table><thead><tr><th>Contrepartie</th><th class="num"># deals</th><th class="num">%</th><th class="num">Valeur $m</th><th class="num">%</th></tr></thead><tbody id="u_cons"></tbody></table></div>
-      <div class="tblwrap" style="margin-bottom:14px"><table><thead><tr><th>Type acquéreur</th><th class="num"># deals</th><th class="num">%</th><th class="num">Valeur $m</th><th class="num">%</th></tr></thead><tbody id="u_acq"></tbody></table></div>
-      <div class="tblwrap"><table><thead><tr><th>Approche</th><th class="num"># deals</th><th class="num">%</th><th class="num">Valeur $m</th><th class="num">%</th></tr></thead><tbody id="u_appr"></tbody></table></div>
+      <div class="tblwrap" style="margin-bottom:14px"><table><thead><tr><th>Consideration</th><th class="num"># deals</th><th class="num">%</th><th class="num">Value $m</th><th class="num">%</th></tr></thead><tbody id="u_cons"></tbody></table></div>
+      <div class="tblwrap" style="margin-bottom:14px"><table><thead><tr><th>Acquirer type</th><th class="num"># deals</th><th class="num">%</th><th class="num">Value $m</th><th class="num">%</th></tr></thead><tbody id="u_acq"></tbody></table></div>
+      <div class="tblwrap"><table><thead><tr><th>Approach</th><th class="num"># deals</th><th class="num">%</th><th class="num">Value $m</th><th class="num">%</th></tr></thead><tbody id="u_appr"></tbody></table></div>
     </div>
   </div>
 </section>
@@ -155,107 +155,107 @@
 <footer id="foot"></footer>
 
 <!-- ================================================================= -->
-<!--  DONNÉES DU TRIMESTRE — pour une mise à jour, ne toucher QUE ce   -->
-<!--  bloc DATA. Reprendre les mêmes slides des decks UBS :            -->
+<!--  QUARTERLY DATA — to update, edit ONLY this DATA block.           -->
+<!--  Pull from the same UBS deck slides each quarter:                 -->
 <!--   • EMEA : Introduction & Highlights, Deal Volume, Spreads,       -->
 <!--     Activity Characteristics, Target Region / GICS Sector.        -->
 <!--   • US   : Highlights, Deal Activity, Top 10 Definitive Deals,    -->
-<!--     Premiums, Non-Annualized Spreads, Deal Universe (annexe).     -->
-<!--  N'utiliser que des chiffres explicitement cités (pas de lecture  -->
-<!--  approximative des barres). Les séries QoQ US sont déduites des   -->
-<!--  variations % du deck.                                            -->
+<!--     Premiums, Non-Annualized Spreads, Deal Universe (appendix).   -->
+<!--  Use only figures explicitly stated in the decks (do NOT read     -->
+<!--  approximate values off chart bars). US QoQ series are derived    -->
+<!--  from the stated % changes.                                       -->
 <!-- ================================================================= -->
 <script>
 const DATA = {
   quarter: '2Q26',
-  date: 'juillet 2026',
+  date: 'July 2026',
 
   /* ------------------------------- EMEA ------------------------------- */
   emea: {
-    // Cartes KPI : {lbl, val, sub, cls?}  cls = 'pos' | 'neg' (couleur du chiffre)
+    // KPI cards: {lbl, val, sub, cls?}  cls = 'pos' | 'neg' (value colour)
     kpis: [
-      {lbl:'Deals annoncés',   val:'41',     sub:'dont 28 fermes · record trimestriel'},
-      {lbl:'Valeur annoncée',  val:'$152bn', sub:'plus haut historique · ferme $75bn'},
-      {lbl:'Taille moy. ferme',val:'$2.7bn', sub:'vs $6.6bn T1 · moy. hist. $2.1bn'},
-      {lbl:'Prime moyenne',    val:'33%',    sub:"en ligne avec l'historique"},
-      {lbl:'Cash (nombre)',    val:'83%',    sub:'58% en valeur'},
-      {lbl:'UK (nombre)',      val:'49%',    sub:'1ère géo · 37% en valeur'},
-      {lbl:'Durée moy.',       val:'151j',   sub:'plus bas depuis T4 2024'},
-      {lbl:'Opposition actio.',val:'15%',    sub:'> moy. hist. 11% · 0 hostile', cls:'neg'}
+      {lbl:'Announced deals',   val:'41',     sub:'28 definitive · quarterly record'},
+      {lbl:'Announced value',   val:'$152bn', sub:'all-time high · definitive $75bn'},
+      {lbl:'Avg definitive size',val:'$2.7bn',sub:'vs $6.6bn Q1 · hist. avg $2.1bn'},
+      {lbl:'Average premium',   val:'33%',    sub:'broadly in line with history'},
+      {lbl:'Cash (by count)',   val:'83%',    sub:'58% by value'},
+      {lbl:'UK (by count)',     val:'49%',    sub:'top geography · 37% by value'},
+      {lbl:'Avg duration',      val:'151d',   sub:'lowest since Q4 2024'},
+      {lbl:'Shareholder oppos.',val:'15%',    sub:'> hist. avg 11% · 0 hostile', cls:'neg'}
     ],
-    // Points clés : HTML autorisé (<b>, <span class="k">…</span>)
+    // Key takeaways: HTML allowed (<b>, <span class="k">…</span>)
     highlights: [
-      'Fort rebond de l\'activité après un T1 anormalement faible : <b>41 deals</b> (28 fermes), nouveau record trimestriel par le nombre.',
-      'Valeur ferme dominée par <b>BMPS</b> et <b>Intertek</b> (seuls &gt;$10bn), <span class="k">64%</span> de la valeur ferme totale à eux deux.',
-      'Deals &gt;$10bn non fermes en fin de trimestre : <b>Akzo Nobel, Delivery Hero, Segro, UMG</b>.',
-      'Primes largement dispersées ; situations à prime faible : <b>Kontron 4.9%</b> et <b>Hugo Boss 4.3%</b> (offres obligatoires).',
-      'Réaction cours acquéreur J+1 : <span class="k">+0.4%</span> en cash, <span class="k">−2.2%</span> en actions/mixte.',
-      '<b>4 contre-offres</b> (10% des deals) ; taux de surenchère 7% (hist. 4%), amélioration moyenne 7% (hist. 10%).',
-      'YTD, les <b>Financials</b> pèsent <span class="k">39%</span> de la valeur, loin devant Industrials à 16%.',
-      'Activité sponsors 46% du nombre / 29% de la valeur : <b>Recordati, Intertek, DCC</b>.',
-      'Taux d\'échec 12.2% (tous au stade pré-event) ; seul <b>Senior/Advent</b> stoppé après offre concurrente. P&amp;L moyen sur deals cassés −11.6%.'
+      'Sharp rebound after an unusually weak Q1: <b>41 deals</b> (28 definitive), a new quarterly record by count.',
+      'Definitive value driven by <b>BMPS</b> and <b>Intertek</b> (only ones &gt;$10bn), <span class="k">64%</span> of total definitive value between them.',
+      'Deals &gt;$10bn still non-definitive at quarter end: <b>Akzo Nobel, Delivery Hero, Segro, UMG</b>.',
+      'Wide premium dispersion; low-premium situations: <b>Kontron 4.9%</b> and <b>Hugo Boss 4.3%</b> (mandatory offers).',
+      'Acquiror next-day share reaction: <span class="k">+0.4%</span> in cash, <span class="k">−2.2%</span> in stock/mixed.',
+      '<b>4 counterbids</b> (10% of deals); bump rate 7% (hist. 4%), average offer improvement 7% (hist. 10%).',
+      'YTD, <b>Financials</b> account for <span class="k">39%</span> of value, far ahead of Industrials at 16%.',
+      'Sponsor activity 46% by count / 29% by value: <b>Recordati, Intertek, DCC</b>.',
+      'Failure rate 12.2% (all at pre-event stage); only <b>Senior/Advent</b> stopped after a competing offer. Avg P&amp;L on broken deals −11.6%.'
     ],
     charts: {
-      // Spreads non annualisés YTD : [Moyenne, Médiane, Pondéré valeur]
-      spread:  {labels:['Moyenne','Médiane','Pondéré valeur'],
-                start:[3.1,3.36,4.28], end:[3.67,2.94,3.93], startLbl:'Début 2026', endLbl:'Fin juin 2026'},
-      // Dispersion des primes : situations + moyenne du trimestre
-      prem:    {labels:['Kontron','Hugo Boss','Moy. trimestre'], data:[4.9,4.3,33]},
-      // Mix contrepartie : cash / (actions+mixte), par nombre puis par valeur
+      // Non-annualised spreads YTD: [Average, Median, Value-weighted]
+      spread:  {labels:['Average','Median','Value-weighted'],
+                start:[3.1,3.36,4.28], end:[3.67,2.94,3.93], startLbl:'Start 2026', endLbl:'End June 2026'},
+      // Premium dispersion: situations + quarter average
+      prem:    {labels:['Kontron','Hugo Boss','Qtr avg'], data:[4.9,4.3,33]},
+      // Consideration mix: cash / (stock+mixed), by count then by value
       cons:    {cashCount:83, cashValue:58},
-      // Géographie par valeur : trimestre (2Q) vs YTD ; null = non communiqué
-      geo:     {labels:['UK','Italie','Allemagne'], q:[37,29,null], ytd:[36,24,19]}
+      // Geography by value: quarter (2Q) vs YTD ; null = not disclosed
+      geo:     {labels:['UK','Italy','Germany'], q:[37,29,null], ytd:[36,24,19]}
     },
     named: [
-      ['Ferme &gt;$10bn','BMPS · Intertek'],
-      ['Pré-event &gt;$10bn (non ferme)','Akzo Nobel · Delivery Hero · Segro · UMG'],
+      ['Definitive &gt;$10bn','BMPS · Intertek'],
+      ['Pre-event &gt;$10bn (non-definitive)','Akzo Nobel · Delivery Hero · Segro · UMG'],
       ['Financials','BMPS · PTSB'],
-      ['Deals sponsors','Recordati · Intertek · DCC'],
-      ['Primes faibles','Kontron (4.9%) · Hugo Boss (4.3%)'],
-      ['Contre-offre / échec','Senior / Advent (stoppé après offre concurrente)'],
-      ['Deals longs bouclés au trimestre','JUST LN · IDOX LN'],
-      ['Interloper retiré','Akzo Nobel (offre potentielle retirée, en cours d\'acquisition d\'Axalta)']
+      ['Sponsor deals','Recordati · Intertek · DCC'],
+      ['Low premiums','Kontron (4.9%) · Hugo Boss (4.3%)'],
+      ['Counterbid / failure','Senior / Advent (stopped after competing offer)'],
+      ['Long-dated deals closed in quarter','JUST LN · IDOX LN'],
+      ['Interloper withdrawn','Akzo Nobel (potential offer withdrawn, mid-acquisition of Axalta)']
     ]
   },
 
   /* -------------------------------- US -------------------------------- */
   us: {
     kpis: [
-      {lbl:'Deals annoncés',  val:'39',     sub:'−3% T/T · +26% A/A · 73e pct.'},
-      {lbl:'Valeur annoncée', val:'$324bn', sub:'+74% T/T · +297% A/A · 92e pct.', cls:'pos'},
-      {lbl:'Taille moyenne',  val:'$8.3bn', sub:'vs $4.7bn T1 · +80% vs moy.'},
-      {lbl:'Valeur ferme',    val:'$252bn', sub:'32 deals · +44% T/T'},
-      {lbl:'Prime stratég.',  val:'31%',    sub:'vs 40% T1 · non-stratég. 48%'},
-      {lbl:'Cash (nombre)',   val:'74%',    sub:'48% en valeur · actions ↑ 52%'},
-      {lbl:'Acheteurs non-US',val:'31%',    sub:'nombre · 16% en valeur'},
-      {lbl:'Sponsors (valeur)',val:'5%',    sub:'plus bas ~10 ans · 22% du nombre', cls:'neg'}
+      {lbl:'Announced deals',  val:'39',     sub:'−3% QoQ · +26% YoY · 73rd pct.'},
+      {lbl:'Announced value',  val:'$324bn', sub:'+74% QoQ · +297% YoY · 92nd pct.', cls:'pos'},
+      {lbl:'Average deal size',val:'$8.3bn', sub:'vs $4.7bn Q1 · +80% vs avg'},
+      {lbl:'Definitive value', val:'$252bn', sub:'32 deals · +44% QoQ'},
+      {lbl:'Strategic premium',val:'31%',    sub:'vs 40% Q1 · non-strategic 48%'},
+      {lbl:'Cash (by count)',  val:'74%',    sub:'48% by value · stock ↑ 52%'},
+      {lbl:'Non-US buyers',    val:'31%',    sub:'by count · 16% by value'},
+      {lbl:'Sponsors (value)', val:'5%',     sub:'~10-yr low · 22% by count', cls:'neg'}
     ],
     highlights: [
-      'Activité stable en nombre mais <b>très forte en valeur</b> : $324bn annoncés, au 92e percentile depuis 1998.',
-      'Répartition très biaisée vers les <b>grands deals</b> : large/mid/small = 44% / 33% / 23% (hist. 21 / 46 / 33).',
-      '<b>Communications</b> = secteur le plus actif en valeur (31%) ; <b>consumer non-cyclical</b> le plus actif en nombre (38%).',
-      'Le <b>stock</b> monte à <span class="k">52%</span> de la valeur (vs moy. 33% depuis 2Q21) ; cash reste majoritaire en nombre.',
-      'Primes : all-cash stratég. <span class="k">35%</span>, all-stock stratég. <span class="k">6%</span> (vs hist. 43% / 24%).',
-      'Cross-border en baisse : non-US 16% valeur / 31% nombre (vs 32% / 35% au T1).',
-      'Spread annualisé plafonné médian <span class="k">3.6%</span> (vs 4.3% au T1) ; multiples EV/EBITDA en ligne avec la moyenne 2006-2026.',
-      'Environnement bénin : <b>0</b> price cut, <b>0</b> opposition actionnaire (deals fermes), <b>0</b> termination au trimestre.',
-      '1H26 : $510bn annoncés (79 deals) vs $192bn (62) en 1H25 ; ferme $427bn (69) vs $162bn (52).'
+      'Flat by count but <b>very strong by value</b>: $324bn announced, at the 92nd percentile since 1998.',
+      'Heavily skewed to <b>large deals</b>: large/mid/small = 44% / 33% / 23% (hist. 21 / 46 / 33).',
+      '<b>Communications</b> = most active sector by value (31%); <b>consumer non-cyclical</b> most active by count (38%).',
+      '<b>Stock</b> rises to <span class="k">52%</span> of value (vs 33% avg since 2Q21); cash still majority by count.',
+      'Premiums: all-cash strategic <span class="k">35%</span>, all-stock strategic <span class="k">6%</span> (vs hist. 43% / 24%).',
+      'Cross-border lower: non-US 16% value / 31% count (vs 32% / 35% in Q1).',
+      'Capped annualised median spread <span class="k">3.6%</span> (vs 4.3% in Q1); EV/EBITDA multiples in line with the 2006-2026 average.',
+      'Benign backdrop: <b>0</b> price cuts, <b>0</b> shareholder opposition (definitive deals), <b>0</b> terminations in the quarter.',
+      '1H26: $510bn announced (79 deals) vs $192bn (62) in 1H25; definitive $427bn (69) vs $162bn (52).'
     ],
     charts: {
-      // Activité : 3 relevés (ex. 2Q25 / 1Q26 / 2Q26). Valeurs $bn ; # deals annoncés.
+      // Activity: 3 snapshots (e.g. 2Q25 / 1Q26 / 2Q26). Values $bn ; # announced deals.
       act:     {labels:['2Q25','1Q26','2Q26'], announced:[82,186,324], definitive:[75,175,252], count:[31,40,39]},
-      // Primes % par catégorie : prev = trimestre précédent, cur = courant, hist = moyenne
-      prem:    {labels:['Stratégique','Non-stratég.','All-cash strat.','All-stock strat.'],
+      // Premiums % by category: prev = prior quarter, cur = current, hist = average
+      prem:    {labels:['Strategic','Non-strategic','All-cash strat.','All-stock strat.'],
                 prev:[40,28,50,18], cur:[31,48,35,6], hist:[35,32,43,24],
                 prevLbl:'1Q26', curLbl:'2Q26'},
-      // Spreads non annualisés : 3 relevés dans le temps
-      spread:  {labels:['31 déc. 25','2 avr. 26','2 juil. 26'],
+      // Non-annualised spreads: 3 snapshots over time
+      spread:  {labels:['Dec 31 25','Apr 2 26','Jul 2 26'],
                 avg:[2.5,2.8,4.5], med:[0.9,1.1,1.2], wtd:[3.4,5.4,6.3]},
-      // Mix : part par valeur / par nombre
-      mix:     {labels:['Cash','Stock','Acq. US','Acq. non-US'], value:[48,52,84,16], count:[74,26,69,31]}
+      // Mix: share by value / by count
+      mix:     {labels:['Cash','Stock','US acq.','Non-US acq.'], value:[48,52,84,16], count:[74,26,69,31]}
     },
-    // Top 10 deals fermes : [date, cible, acquéreur, pays, valeur$m, contrepartie, prime, deal/acq, secteur, voteAcq(0/1), stratég(0/1)]
-    top10Note: '74% de la valeur ferme du trimestre',
+    // Top 10 definitive deals: [date, target, acquirer, country, value$m, consideration, premium, deal/acq, sector, acqVote(0/1), strategic(0/1)]
+    top10Note: "74% of the quarter's definitive deal value",
     top10: [
       ['5/18/26','Dominion Energy','NextEra Energy','US',67368,'Cash & Stock','23.7%','35%','Utilities',1,1],
       ['5/21/26','Equity Residential','AvalonBay Communities','US',25115,'Stock','0.8%','97%','Real Estate',1,1],
@@ -268,8 +268,8 @@ const DATA = {
       ['6/22/26','Arcosa','CRH plc','IR',7438,'Cash','10.4%','10%','Industrials',0,1],
       ['6/1/26','Taylor Morrison Home','Berkshire Hathaway','US',6919,'Cash','23.9%','1%','Consumer Disc.',0,1]
     ],
-    // Univers de deals en cours (annexe US) : rangées [libellé, #deals, %#, valeur$m, %val]
-    universeNote: 'au 2 juil. 2026 · 80 deals · $742.7bn',
+    // Outstanding deal universe (US appendix): rows [label, #deals, %#, value$m, %val]
+    universeNote: 'as of Jul 2, 2026 · 80 deals · $742.7bn',
     universe: {
       sector: [
         ['Basic Materials',6,'8%',53978,'7%'],
@@ -305,7 +305,7 @@ const DATA = {
 };
 
 /* ================================================================= */
-/*  RENDU — ne pas modifier pour une simple mise à jour de chiffres  */
+/*  RENDERING — no need to touch for a simple figures update         */
 /* ================================================================= */
 Chart.defaults.color = '#7a828e';
 Chart.defaults.borderColor = '#262b33';
@@ -324,9 +324,9 @@ $('h-title').innerHTML = `M&A REVIEW <span>${DATA.quarter} //</span> EMEA & US`;
 $('h-sub').innerHTML = `UBS Special Situations Desk · ${DATA.date} · <span class="mono">sales & trading commentary, not research</span>`;
 document.title = `M&A Review ${DATA.quarter} — EMEA & US (UBS Special Situations)`;
 $('foot').innerHTML =
-  `<b>Sources :</b> UBS Special Situations Desk — « EMEA M&A Review: ${DATA.quarter} » et « US M&A Review: ${DATA.quarter} », ${DATA.date} ; données Bloomberg, corporate filings.<br>`+
-  `<b>Périmètre :</b> EMEA — cibles cotées européennes, deal ≥ $100m. US — fusions &gt; $400m d'equity value, cibles cotées US.<br>`+
-  `<b>Note :</b> commentaire d'un desk sales & trading, pas un produit de la recherche UBS. Séries reprises des chiffres des decks ; à réconcilier avant tout usage. For institutional investors only.`;
+  `<b>Sources:</b> UBS Special Situations Desk — "EMEA M&A Review: ${DATA.quarter}" and "US M&A Review: ${DATA.quarter}", ${DATA.date}; Bloomberg data, corporate filings.<br>`+
+  `<b>Scope:</b> EMEA — European-listed targets, deal ≥ $100m. US — mergers &gt; $400m equity value, US-listed targets.<br>`+
+  `<b>Note:</b> sales & trading desk commentary, not a UBS Research product. Figures taken from the decks; reconcile before any use. For institutional investors only.`;
 
 /* tabs */
 const built = new Set();
@@ -335,7 +335,7 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
   t.classList.add('active');
   $('view-'+t.dataset.view).classList.add('active');
-  buildCharts(t.dataset.view); // lazy init : un graphe construit dans un onglet masqué a un canvas 0×0
+  buildCharts(t.dataset.view); // lazy init: a chart built in a hidden (display:none) tab gets a 0×0 canvas
 }));
 function buildCharts(region){
   if(built.has(region)) return;
@@ -368,12 +368,12 @@ new Chart(e_spread,{type:'bar',data:{labels:E.charts.spread.labels,datasets:[
 ]},options:{...noMaint,scales:{y:{beginAtZero:true,...pct},x:grid},plugins:legB}});
 
 new Chart(e_prem,{type:'bar',data:{labels:E.charts.prem.labels,datasets:[
-  {label:'Prime %',data:E.charts.prem.data,backgroundColor:E.charts.prem.data.map((_,i,a)=>i===a.length-1?C.amber:C.red)}
+  {label:'Premium %',data:E.charts.prem.data,backgroundColor:E.charts.prem.data.map((_,i,a)=>i===a.length-1?C.amber:C.red)}
 ]},options:{...noMaint,indexAxis:'y',scales:{x:{beginAtZero:true,...pct},y:grid},plugins:{legend:{display:false}}}});
 
-new Chart(e_cons,{type:'bar',data:{labels:['Par nombre','Par valeur'],datasets:[
+new Chart(e_cons,{type:'bar',data:{labels:['By count','By value'],datasets:[
   {label:'Cash',data:[E.charts.cons.cashCount,E.charts.cons.cashValue],backgroundColor:C.blue},
-  {label:'Actions / mixte',data:[100-E.charts.cons.cashCount,100-E.charts.cons.cashValue],backgroundColor:C.purple}
+  {label:'Stock / mixed',data:[100-E.charts.cons.cashCount,100-E.charts.cons.cashValue],backgroundColor:C.purple}
 ]},options:{...noMaint,scales:{x:{stacked:true,...grid},y:{stacked:true,...pct}},plugins:legB}});
 
 new Chart(e_geo,{type:'bar',data:{labels:E.charts.geo.labels,datasets:[
@@ -386,14 +386,14 @@ new Chart(e_geo,{type:'bar',data:{labels:E.charts.geo.labels,datasets:[
 const U = DATA.us;
 renderKpis('u_kpis', U.kpis);
 renderHigh('u_high', U.highlights);
-$('u_top10_h').innerHTML = `Top 10 deals fermes — ${DATA.quarter} <span class="mut">(${U.top10Note})</span>`;
-$('u_univ_h').innerHTML = `Univers de deals en cours <span class="mut">(${U.universeNote})</span>`;
+$('u_top10_h').innerHTML = `Top 10 Definitive Deals — ${DATA.quarter} <span class="mut">(${U.top10Note})</span>`;
+$('u_univ_h').innerHTML = `Outstanding Deal Universe <span class="mut">(${U.universeNote})</span>`;
 
 function buildUsCharts(){
 new Chart(u_act,{data:{labels:U.charts.act.labels,datasets:[
-  {type:'bar',label:'Valeur annoncée $bn',data:U.charts.act.announced,backgroundColor:C.blue,yAxisID:'y'},
-  {type:'bar',label:'Valeur ferme $bn',data:U.charts.act.definitive,backgroundColor:C.amber,yAxisID:'y'},
-  {type:'line',label:'# deals annoncés',data:U.charts.act.count,borderColor:C.green,backgroundColor:C.green,yAxisID:'y1',tension:.3}
+  {type:'bar',label:'Announced value $bn',data:U.charts.act.announced,backgroundColor:C.blue,yAxisID:'y'},
+  {type:'bar',label:'Definitive value $bn',data:U.charts.act.definitive,backgroundColor:C.amber,yAxisID:'y'},
+  {type:'line',label:'# announced deals',data:U.charts.act.count,borderColor:C.green,backgroundColor:C.green,yAxisID:'y1',tension:.3}
 ]},options:{...noMaint,scales:{
   y:{beginAtZero:true,position:'left',title:{display:true,text:'$bn'},...grid},
   y1:{beginAtZero:true,position:'right',title:{display:true,text:'# deals'},grid:{drawOnChartArea:false}},
@@ -406,14 +406,14 @@ new Chart(u_prem,{type:'bar',data:{labels:U.charts.prem.labels,datasets:[
 ]},options:{...noMaint,scales:{y:{beginAtZero:true,...pct},x:grid},plugins:legB}});
 
 new Chart(u_spread,{data:{labels:U.charts.spread.labels,datasets:[
-  {type:'line',label:'Moyenne',data:U.charts.spread.avg,borderColor:C.amber,backgroundColor:C.amber,tension:.3},
-  {type:'line',label:'Médiane',data:U.charts.spread.med,borderColor:C.blue,backgroundColor:C.blue,tension:.3},
-  {type:'line',label:'Pondéré cap.',data:U.charts.spread.wtd,borderColor:C.green,backgroundColor:C.green,tension:.3}
+  {type:'line',label:'Average',data:U.charts.spread.avg,borderColor:C.amber,backgroundColor:C.amber,tension:.3},
+  {type:'line',label:'Median',data:U.charts.spread.med,borderColor:C.blue,backgroundColor:C.blue,tension:.3},
+  {type:'line',label:'Cap-weighted',data:U.charts.spread.wtd,borderColor:C.green,backgroundColor:C.green,tension:.3}
 ]},options:{...noMaint,scales:{y:{beginAtZero:true,...pct},x:grid},plugins:legB}});
 
 new Chart(u_mix,{type:'bar',data:{labels:U.charts.mix.labels,datasets:[
-  {label:'Par valeur',data:U.charts.mix.value,backgroundColor:C.amber},
-  {label:'Par nombre',data:U.charts.mix.count,backgroundColor:C.blue}
+  {label:'By value',data:U.charts.mix.value,backgroundColor:C.amber},
+  {label:'By count',data:U.charts.mix.count,backgroundColor:C.blue}
 ]},options:{...noMaint,scales:{y:{beginAtZero:true,...pct},x:grid},plugins:legB}});
 }
 
@@ -429,7 +429,7 @@ renderUniv('u_cons', U.universe.cons);
 renderUniv('u_acq',  U.universe.acq);
 renderUniv('u_appr', U.universe.appr);
 
-buildCharts('emea'); // onglet visible au chargement
+buildCharts('emea'); // tab visible on load
 </script>
 </body>
 </html>
