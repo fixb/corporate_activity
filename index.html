@@ -590,17 +590,19 @@ $("addRow").addEventListener("click",()=>{
 
 $("exportJson").addEventListener("click",()=>{
   const fname="deal_tracker_"+new Date().toISOString().slice(0,10)+".json";
-  const blob=new Blob([JSON.stringify(deals,null,1)],{type:"application/json"});
-  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
-  a.download=fname;a.click();
-  // Ouvre aussi le client mail (page statique : pièce jointe à ajouter à la main)
   const subject="Deal tracker — "+new Date().toISOString().slice(0,10);
   const body="JSON exporté : "+fname+" ("+deals.length+" deals).\n\n"
     +"Pense à joindre le fichier "+fname+" (téléchargé) à ce mail.";
   const to="fx.baud@bgam-uk.com";
-  location.href="mailto:"+encodeURIComponent(to)
-    +"?subject="+encodeURIComponent(subject)
-    +"&body="+encodeURIComponent(body);
+  // Ouvre la composition Outlook web dans un nouvel onglet (pas besoin d'un client mail
+  // par défaut). Fait AVANT le téléchargement pour préserver le geste utilisateur (anti-popup).
+  const compose="https://outlook.office.com/mail/deeplink/compose?to="+encodeURIComponent(to)
+    +"&subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+  window.open(compose,"_blank");
+  // Puis télécharge le JSON (page statique : pièce jointe à ajouter à la main).
+  const blob=new Blob([JSON.stringify(deals,null,1)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download=fname;a.click();
 });
 $("importBtn").addEventListener("click",()=>$("importFile").click());
 function migrate(arr){
