@@ -606,8 +606,10 @@ $("exportJson").addEventListener("click",()=>{
     location.href="mailto:"+to+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
   }else{
     // Desktop : composition Outlook web (nouvel onglet, pas besoin de client par défaut).
+    // NB : l'adresse "to" reste littérale (pas de %40) — sinon le deeplink d'Outlook
+    // échoue silencieusement et ouvre la boîte de réception au lieu de la composition.
     // window.open AVANT le téléchargement pour préserver le geste utilisateur (anti-popup).
-    const compose="https://outlook.office.com/mail/deeplink/compose?to="+encodeURIComponent(to)
+    const compose="https://outlook.office.com/mail/deeplink/compose?to="+to
       +"&subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
     window.open(compose,"_blank");
     dl();
