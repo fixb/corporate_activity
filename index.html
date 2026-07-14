@@ -154,6 +154,7 @@
   <button id="addRow" class="primary">+ Ajouter un deal</button>
   <button id="exportJson">Exporter JSON</button>
   <button id="importBtn">Importer JSON</button>
+  <button id="reloadJson" title="Recharger ./deals.json du repo — écrase la sauvegarde locale de cet appareil">↻ deals.json</button>
   <input type="file" id="importFile" accept=".json" style="display:none">
   <input type="file" id="docFile" accept=".pdf" style="display:none">
 </div>
@@ -209,7 +210,8 @@
 
 <footer>
   Spread brut = (bid actif − cours) / cours · Annualisé = brut × 365 / jours restants (simple) · PUSU : Rule 2.6 UK, badge ambre à J-14, rouge à J-7, barré une fois passé.<br>
-  <b>GitHub Pages :</b> au chargement, la page cherche <span class="mono">./deals.json</span> à côté du HTML (badge vert = trouvé). Workflow : éditer sur n'importe quel appareil → Exporter JSON → renommer en <span class="mono">deals.json</span> → pusher dans le repo. Sans ce fichier (ou en local file://), la page utilise ses données embarquées, et l'import manuel reste disponible.<br>
+  <b>Sauvegarde auto :</b> les deals saisis sont enregistrés automatiquement dans ce navigateur (localStorage) → conservés au refresh et à la fermeture, <b>par appareil</b>. Pour synchroniser entre appareils : Exporter JSON → renommer en <span class="mono">deals.json</span> → pusher dans le repo, puis <span class="mono">↻ deals.json</span> sur les autres appareils.<br>
+  <b>GitHub Pages :</b> au 1er chargement (sans sauvegarde locale), la page cherche <span class="mono">./deals.json</span> à côté du HTML (badge vert = trouvé), sinon utilise ses données embarquées. Limite localStorage ~5 Mo : les PDF embarqués peuvent la dépasser (préférer les liens).<br>
   Documents : embarqués (base64 dans le JSON, portable mais lourd) ou liés (URL ou chemin relatif <span class="mono">./docs/xxx.pdf</span> dans le repo — recommandé pour les présentations).<br>
   Persistance via Exporter / Importer JSON (les JSON v1→v7 s'importent). Données saisies à la main : à réconcilier avec Bloomberg avant tout usage.
 </footer>
@@ -364,6 +366,17 @@ function panelHTML(i,d){
    </td></tr>`;
 }
 
+/* ===== Persistance locale (autosave navigateur) =====
+   Les deals saisis sont sauvegardés automatiquement dans le localStorage du
+   navigateur à chaque modification → ils survivent au refresh et à la fermeture,
+   par appareil et par navigateur. Limite ~5 Mo : les PDF embarqués (base64)
+   peuvent la dépasser (préférer les liens). Export/Import JSON reste le moyen de
+   sauvegarde et de synchro entre appareils. */
+const LS_KEY="corporate_activity_deals_v8";
+let ready=false; // true une fois le chargement initial résolu → autorise l'autosave
+function saveLocal(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(deals)); }catch(_){/* quota dépassé (PDF lourds ?) */} }
+function loadLocal(){ try{ const s=localStorage.getItem(LS_KEY); const a=s?JSON.parse(s):null; return Array.isArray(a)?a:null; }catch(_){ return null; } }
+
 function render(){
   let rows = visibleRows();
   rows.sort((a,b)=>{
@@ -407,6 +420,7 @@ function render(){
 
   refreshDatalists();
   renderStats(rows); renderFlowChart(rows); renderScatter(rows);
+  if(ready) saveLocal(); // autosave après toute modification
 }
 
 function refreshDatalists(){
@@ -638,12 +652,35 @@ $("importFile").addEventListener("change",e=>{
   r.readAsText(file);
 });
 
+$("reloadJson").addEventListener("click",async()=>{
+  if(!confirm("Recharger ./deals.json depuis le repo et écraser la sauvegarde locale de cet appareil ?"))return;
+  try{
+    const resp=await fetch("./deals.json",{cache:"no-store"});
+    if(!resp.ok)throw new Error("deals.json introuvable ("+resp.status+")");
+    const arr=await resp.json();
+    if(!Array.isArray(arr))throw new Error("format invalide (tableau JSON attendu)");
+    deals=migrate(arr);
+    $("src").textContent="deals.json";
+    $("src").style.color="var(--green)";$("src").style.borderColor="var(--green)";
+    expanded.clear();render(); // render() ré-enregistre la version repo en local
+  }catch(err){alert("Rechargement impossible : "+err.message);}
+});
+
 $("clock").textContent=new Date().toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
 
-/* Au démarrage : tente de charger ./deals.json (repo GitHub Pages).
-   Succès → remplace les données embarquées. Échec (fichier absent, ou ouverture
-   en file:// qui bloque fetch) → fallback silencieux sur les données embarquées. */
+/* Au démarrage, par ordre de priorité :
+   1) localStorage (autosave) → on repart des deals saisis sur cet appareil ;
+   2) ./deals.json (repo GitHub Pages) → seed partagé entre appareils ;
+   3) données embarquées.
+   Puis ready=true active l'autosave pour toute modification ultérieure. */
 (async()=>{
+  const local=loadLocal();
+  if(local&&local.length){
+    deals=migrate(local);
+    $("src").textContent="local (auto)";
+    expanded.clear();render();
+    ready=true;return;
+  }
   render(); // affichage immédiat avec les données embarquées
   try{
     const resp=await fetch("./deals.json",{cache:"no-store"});
@@ -657,6 +694,7 @@ $("clock").textContent=new Date().toLocaleDateString("fr-FR",{weekday:"long",day
       }
     }
   }catch(_){/* pas de deals.json — données embarquées conservées */}
+  ready=true;
 })();
 </script>
 </body>
