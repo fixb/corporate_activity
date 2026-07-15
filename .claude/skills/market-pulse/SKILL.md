@@ -1,6 +1,7 @@
 ---
 name: market-pulse
 description: Update the Market Pulse tab of the corporate_activity M&A review from the latest Bloomberg "M&A Weekly Agenda" PDF (plus any context articles) saved in the OneDrive 2026 folder, then commit and push. Use when the user says "market pulse", "update the M&A review", "mets à jour la revue M&A", or has dropped a new weekly agenda PDF.
+allowed-tools: Read, Edit, Bash(git:*), Bash(find:*), Bash(stat:*), Bash(date:*), Bash(grep:*), mcp__Claude_Browser__*
 ---
 
 # Market Pulse weekly update
