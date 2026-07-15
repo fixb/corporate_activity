@@ -34,23 +34,42 @@ Only these local PDFs. Bloomberg, the FT and the WSJ are paywalled — do not tr
 from their sites, and do not work around a paywall. If the folder has nothing newer than what the
 page already shows, say so and stop rather than inventing an update.
 
+### Which agenda is the page already built from?
+
+**Never use `asOf` to answer this** — it is the run date, so it says nothing about which agenda the
+content came from and will always look "not newer" than the agenda you just found. The published
+week lives in the git history instead:
+
+```bash
+git log --oneline -12 --grep="Market Pulse — week of"
+```
+
+The newest such commit names the week currently on the page. Compare the agenda PDF's own week
+against that.
+
 ### Two modes
 
-- **Weekly refresh** — a weekly agenda newer than the current `asOf` exists. Rebuild the whole
-  `news` block from it (below).
-- **Single-deal top-up** — no newer agenda, but the user saved a one-off article (or asks for a
-  named deal). Add it to `newDeals`, add any macro fact it carries to `pulse`, add its dates to
-  `catalysts` if it names any, and leave the rest of the block alone. Add the publication to
-  `sources` if it isn't already listed. Prefer dropping the oldest/least relevant `newDeals` entry
-  over letting the list grow past ~6. Still restamp `asOf` to today and still drop past catalysts —
-  both modes do that.
+- **Weekly refresh** — the newest agenda PDF covers a later week than the last
+  `Market Pulse — week of <date>` commit. Rebuild the whole `news` block from it (below).
+- **Single-deal top-up** — the newest agenda is one the page already reflects, but the user saved a
+  one-off article (or asks for a named deal). Add it to `newDeals`, add any macro fact it carries to
+  `pulse`, add its dates to `catalysts` if it names any, and leave the rest of the block alone. Add
+  the publication to `sources` if it isn't already listed. Prefer dropping the oldest/least relevant
+  `newDeals` entry over letting the list grow past ~6. Still restamp `asOf` to today and still drop
+  past catalysts — both modes do that.
 
   **Idempotency — check before adding.** The run is triggered by hand and may be repeated with no
   new files. Before writing, confirm the target is not already in `newDeals` (match on the target
   name, not the note text) and that `git log --oneline -8` shows no `Market Pulse — add <target>`
   for it. If it is already there, do nothing and say so — never publish the same deal twice.
-  A top-up dated more than a few days after `asOf` means the weekly refresh has been skipped: do
-  the top-up if asked, but tell the user the block is drifting and which agenda is missing.
+  If the last `week of` commit is more than a week or so behind the newest agenda in the folder, a
+  weekly refresh has been skipped: do the top-up if asked, but tell the user the block is drifting
+  and which agenda is missing.
+
+**OneDrive syncs late.** A PDF's mtime is when it landed locally, not when it was published — an
+agenda dated last Friday can appear days later, and re-running an hour after a top-up may well
+surface a new agenda. Always re-list the folder on every run; never assume the previous run saw
+everything.
 
 If both apply (new agenda *and* new articles), do the weekly refresh and fold the articles in as
 context, which is the normal case.
@@ -106,13 +125,16 @@ content entirely; this block is a snapshot, not a running log.
 1. **Sync first** (see [[feedback_sync_before_editing]] — parallel sessions touch this repo):
    `cd /Users/fix/code/corporate_activity && git fetch -q origin && git status -sb`. If behind,
    pull before editing. If the tree is dirty, stop and ask.
-2. Locate and read the newest agenda PDF (+ context articles). Compare its week against the current
-   `asOf` to pick the mode: newer → weekly refresh; not newer but a new article → single-deal
-   top-up; neither → report and stop.
+2. Locate and read the newest agenda PDF (+ context articles). Compare its week against the last
+   `Market Pulse — week of <date>` commit — not against `asOf` — to pick the mode: later week →
+   weekly refresh; same week but a new article → single-deal top-up; neither → report and stop.
 3. Rewrite the `news` block (weekly refresh) or amend `newDeals`/`pulse` (top-up). Facts only,
    reworded.
-4. **Verify the render** before publishing: `preview_start` with name `corporate-activity`
-   (python http.server on 8712, already in `~/.claude/launch.json`), then check
+4. **Verify the render** before publishing: `preview_start` with name `corporate-activity` (python
+   http.server on 8712, tracked in the repo at `.claude/launch.json` — `preview_start` reads the
+   project directory, not `~/.claude`). If it reports the port busy, a parallel session already
+   serves this repo there: navigate to `http://localhost:8712/market-review.html` instead of
+   starting a second server. Then check
    `read_console_messages` for errors and confirm the Market Pulse tab shows the new `asOf`, deals
    and catalysts. The tabs are plain divs, not links — click via
    `javascript_tool`: `document.querySelector('.tab[data-view="emea"]').click()`. Chart.js builds
@@ -139,3 +161,11 @@ content entirely; this block is a snapshot, not a running log.
 - Do **not** rename `market-review.html` — the share URL is stable and already with prospects.
 - `index.html` is only a redirect to it; leave it alone.
 - Only use figures explicitly stated in the text. Never read values off a chart image in the PDF.
+- **Read every page, not the first four.** The agenda runs ~4 pages, but context articles do not —
+  the Jul 2 FT review is 7, and pages 6–7 are where the regional splits and the sponsor figure
+  live. Check the footer ("Page 1 sur 7") or the page count in the Read result and go back for the
+  rest. Half a source reads exactly like a complete one.
+- **Carried-over rows still need a source.** On a weekly refresh you will keep deals that are newer
+  or bigger than the agenda. "It was already on the page" is not traceability — the figure was
+  verified by a *previous* run against a PDF this one has not opened. Re-read the PDF behind any row
+  you keep, or drop the row.
