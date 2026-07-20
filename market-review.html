@@ -318,44 +318,40 @@ const DATA = {
      "M&A Weekly Agenda" (+ tout article de contexte). FAITS uniquement,
      reformulés (pas de prose recopiée), sources attribuées. */
   news: {
-    asOf: '17 July 2026',
+    asOf: '20 July 2026',
     // Faits macro (HTML autorisé). Source entre <span class="mut">…</span>.
     pulse: [
       'Record first half: <b>$2.83tn</b> of M&A announced globally in H1 2026, <span class="k">+49%</span> YoY — the strongest H1 on record, past the $2.74tn of H1 2021. <span class="mut">(LSEG)</span>',
-      'A record <b>47 deals above $10bn</b> (+62% YoY) — value concentrated in the very largest transactions.',
+      'A record <b>47 deals above $10bn</b> (+62% YoY) — value concentrated in the very largest transactions. <span class="mut">(LSEG)</span>',
       'Deal <b>count fell ~9%</b> (lowest since 2020) even as value rose: activity is skewing to mega-caps.',
       'Main drivers: the <b>AI build-out</b> (data-centre power demand), lighter US antitrust enforcement, and a race for scale.',
       'Busiest sectors: <b>Technology</b>, then Energy &amp; Power, then Industrials.',
-      'By value: US <span class="k">+77%</span>, <b>Europe +105%</b>, Asia-Pacific −2.4%. European volumes −14.2% (Iran-war impact), yet Europe\'s share of global target volume ~25% — high end of range.',
-      '<b>UK inbound surge</b>: foreign buyers targeting London-listed names on a perceived valuation discount, industrials especially.',
+      'By value: US <span class="k">+77%</span>, <b>Europe +105%</b>, Asia-Pacific −2.4%. European deal volumes −14.2% (Iran-war impact). <span class="mut">(FT/LSEG)</span>',
+      '<b>UK inbound surge</b>: foreign buyers chase London-listed names on a perceived valuation discount, industrials especially. Segro/Prologis would be the biggest London deal of the year; easyJet, Tate &amp; Lyle and DCC are also drawing bids. <span class="mut">(FT)</span>',
       '<b>Sponsors re-engaging</b>: PE-backed M&A <span class="k">+54%</span> to $601bn — supportive for exits.',
-      'European strategic M&A off to a record start: $390bn targeting European firms YTD; European corporates announced $140bn of deals abroad. <span class="mut">(Goldman Sachs)</span>',
-      'European companies tapping <b>US SPACs</b> again: 9 startups, ≥$12.3bn combined — highest annual tally since 2021. <span class="mut">(SPACInsider)</span>',
-      '<b>Banking consolidation grinding on</b>: UniCredit set for ~48% of Commerzbank (49.65% of votes once tendered shares settle); Crédit Agricole up to <b>29.3%</b> of Banco BPM.',
-      '<b>Italian banking in play</b>: Intesa\'s €30.6bn move on MPS came a day after Banco BPM floated a merger of equals with it. Intesa would split MPS — the brand, ~635 branches and central operations to Unipol and on to BPER — keeping Mediobanca\'s wealth and investment banking arms and MPS\'s <b>13%</b> of Generali. <span class="mut">(FT)</span>',
-      '<b>Rome exiting the banks</b>: the Treasury signalled it will soon sell its remaining <b>4.8%</b> of MPS, nine years after the 2017 bailout and two years into the privatisation that set off the current wave. <span class="mut">(FT)</span>'
+      '<b>Goldman Sachs</b> has advised on more than <b>$1tn</b> of deals, set to be the surge\'s biggest fee beneficiary. <span class="mut">(FT)</span>',
+      '<b>Italian consolidation stays live</b>: Telecom Italia\'s board unanimously backed Poste Italiane\'s <b>€10.8bn</b> takeover as fair, while Monte dei Paschi cast doubt on Intesa Sanpaolo\'s bid and said it will study Banco BPM\'s rival merger plan. <span class="mut">(Bloomberg)</span>'
     ],
     // Nouveaux deals de la semaine : [cible, acquéreur/véhicule, montant, note]
     newDeals: [
-      ['PayPal','Stripe / Advent International','$53bn','$60.50/sh — 28% premium, $50bn committed financing. Unsolicited: PayPal not engaging, deal seen unlikely at this price as the new CEO pursues a turnaround'],
-      ['Segro','Prologis','£12.6bn / $16.9bn','All-share, 0.084 PLD per Segro sh — 925p implied at proposal vs 861p spot. Board rejected in June; PUSU deadline Jul 22'],
-      ['Delivery Hero','Uber Technologies','€11.2bn / $12.8bn mkt cap','Advanced talks confirmed Jul 14; no price disclosed. Uber already holds ~37% (raised from 25% in late May, bought from Aspex). A May approach at €38/sh was seen as too low; shares closed +5.76% at €39.10. Antitrust scrutiny likely on Uber Eats overlap'],
-      ['Monte dei Paschi','Intesa Sanpaolo','€30.6bn','Board pushed back Jul 16 — says the offer undervalues MPS, is overly favourable to Intesa and carries regulatory and execution risk, but stopped short of rejecting it. Door left open to Banco BPM, whose rival merger-of-equals pitch it will study further. Intesa\'s CEO says he has no plans to raise'],
-      ['AkzoNobel — decorative coatings (Dulux)','Nippon Paint','€7.5bn','Bid for the unit alone after a near-€13bn run at the whole group (with Sherwin-Williams) was rebuffed. Values the division at 11.5x its €648m 2025 adj. EBITDA. Akzo says it undervalues the business and that its Axalta merger terms bar engagement; board still unanimously backs the $25bn EV Axalta deal'],
-      ['easyJet','Castlelake vs Apollo','£6.90/sh vs 715p','Board agreed in principle to Castlelake at £6.90 cash after calling earlier bids too low; Apollo gatecrashed at 715p. Possible bidding war — PUSU Aug 3 (Castlelake) and Aug 7 (Apollo)'],
-      ['DCC','KKR / Energy Capital Partners','£5.7bn','Sweetened Jul 16, but only via an extra £1.25/sh contingent on proceeds from the sale of tech arm Nexora — base cash unchanged at £65.25/sh plus a £1.47 final dividend. Fidelity, Aviva Investors and Marathon all oppose; Fidelity wants £70+ cash. Would be among the year\'s largest London take-privates']
+      ['Segro','Prologis','£13.5bn','Third proposal — 993p/sh (up ~6% from June\'s opening bid), largely Prologis stock plus 20% cash — rejected Friday. A ~34% premium to the undisturbed price and ~10% above NAV; board calls it opportunistic and points to a CBRE valuation near £13/sh. Would be London\'s biggest deal this year. PUSU deadline Jul 22'],
+      ['PayPal','Stripe / Advent International','$53bn','$60.50/sh — 28% premium, $50bn committed bank financing. Unsolicited and still a steep discount to a year ago; PayPal not engaging and a deal is seen unlikely at this price as CEO Enrique Lores runs a turnaround'],
+      ['Telecom Italia','Poste Italiane','€10.8bn','Board unanimously endorsed Poste\'s takeover offer as financially fair — Poste, already TIM\'s largest shareholder, moving to consolidate control of the former monopoly'],
+      ['Delivery Hero','Uber Technologies','€11.2bn / $12.8bn mkt cap','Advanced talks confirmed Jul 14; no price disclosed but seen well above the ~€36 trading level. Uber already holds ~37% (raised from 25% in late May, bought from Aspex); a May approach at €38/sh was called too low. Shares closed +5.76% at €39.10. Antitrust scrutiny likely on the Uber Eats overlap'],
+      ['PolyPeptide','Samsung Biologics','$1.8bn / CHF1.46bn equity','All-cash agreed offer for the Swiss contract drug manufacturer — extends the Korean group into peptide-based therapeutics'],
+      ['ArisGlobal','Dassault Systèmes','~$2bn','In talks to buy the drug-trial software maker from Nordic Capital — a bolt-on to Dassault\'s life-sciences software franchise']
     ],
     // Agenda de la semaine : [date, événement]
     catalysts: [
-      ['Jul 17','BNP Paribas ESG conference, Paris'],
-      ['Jul 22','Saipem / Subsea 7 — EU preliminary review ends; in-depth probe expected'],
       ['Jul 22','Segro — Prologis PUSU deadline: firm offer or walk away'],
+      ['Jul 22','IP Group — Railways Pension Trustee PUSU deadline'],
+      ['Jul 22','Saipem / Subsea 7 — EU preliminary review ends; in-depth probe expected'],
       ['Aug 3','easyJet — Castlelake PUSU deadline for a firm offer'],
       ['Aug 5','Gamma Communications — Epiris PUSU deadline'],
       ['Aug 6','Spire Healthcare — Toscafund deadline, to finalise financing'],
       ['Aug 7','easyJet — Apollo PUSU deadline, 5pm London']
     ],
-    sources: 'Facts compiled from the FT (H1 2026 review; PayPal/Stripe; MPS/Intesa; AkzoNobel/Nippon Paint; DCC), the WSJ (Segro/Prologis), Reuters (Delivery Hero/Uber; Saipem/Subsea 7), LSEG, SPACInsider, the Bloomberg M&A Weekly Agenda (N. Campling, with L. Stamm &amp; M. Msika) and Goldman Sachs. Facts only — not affiliated with or endorsed by these sources.'
+    sources: 'Facts compiled from the FT (H1 2026 review; Segro/Prologis; PayPal/Stripe/Advent), Reuters (Delivery Hero/Uber) and the Bloomberg M&A Watch Europe daily briefing (N. Campling &amp; M. Msika) for Telecom Italia/Poste, Samsung Biologics/PolyPeptide, Dassault/ArisGlobal and the Italian banking contest, with LSEG and Goldman Sachs on the macro backdrop. Facts only — not affiliated with or endorsed by these sources.'
   }
 };
 
