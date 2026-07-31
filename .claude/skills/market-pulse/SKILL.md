@@ -130,6 +130,15 @@ content entirely; this block is a snapshot, not a running log.
    weekly refresh; same week but a new article → single-deal top-up; neither → report and stop.
 3. Rewrite the `news` block (weekly refresh) or amend `newDeals`/`pulse` (top-up). Facts only,
    reworded.
+3b. **Roll the deal ledger forward** — `deal-tracker.md` (repo root, internal, not linked from the
+   page). It persists the *whole* open book, including deals that have dropped out of the weekly
+   snapshot but have not yet closed. On every run: add any new situation, bump `Last verified` (to
+   today) + refresh Status only for rows a PDF re-confirmed *this run*, and move any deal that has
+   completed or lapsed into the archive table with its resolution date. Do **not** bump `Last
+   verified` on a row you didn't re-source — instead flag it ⚠ in Notes, and re-source or archive
+   anything stale (>3–4 weeks). Update the "Last rolled forward" date. See the file's own Discipline
+   section. This is the one place the traceability rule and "keep tracking open deals" coexist:
+   figures are only as fresh as their `Last verified` date says.
 4. **Verify the render** before publishing: `preview_start` with name `corporate-activity` (python
    http.server on 8712, tracked in the repo at `.claude/launch.json` — `preview_start` reads the
    project directory, not `~/.claude`). If it reports the port busy, a parallel session already
@@ -141,7 +150,7 @@ content entirely; this block is a snapshot, not a running log.
    lazily per tab; Market Pulse has no charts, but confirm EMEA/US still draw.
 5. Commit and push to `main`:
    ```
-   git add market-review.html && git commit -F - <<'EOF'
+   git add market-review.html deal-tracker.md && git commit -F - <<'EOF'
    Market Pulse — week of <date>
 
    <one line on what changed: N deals, N catalysts, macro refresh>
