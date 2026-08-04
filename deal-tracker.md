@@ -8,7 +8,7 @@ Unlike the weekly `news` block (a snapshot that is rebuilt each run and only sho
 week's agenda), rows here **persist until explicitly moved to the archive** — a deal only leaves the
 Open table when it `Completed` or `Lapsed`. Nothing drops silently.
 
-**Last rolled forward:** 3 August 2026
+**Last rolled forward:** 4 August 2026
 
 ## Discipline
 
@@ -33,14 +33,15 @@ Open table when it `Completed` or `Lapsed`. Nothing drops silently.
 | Arcadis | WSP Global | €51.50/sh | Contested | 31 Jul 2026 | BB Agenda 3 Aug | Boards rejected 2nd unsolicited proposal (cash + WSP stock); approach stays live |
 | Iveco Group | Tata Motors | €14.10/sh (€16.26) | Contested | 31 Jul 2026 | BB Agenda 3 Aug | Activist Petrus Advisers urging holders to withhold support; timetable repeatedly set back |
 | BP North Sea | Disposal process | ~£2bn ($2.7bn) | Rumoured | 31 Jul 2026 | BB Agenda 3 Aug | Marketing the unit as part of a wider portfolio review |
+| BP / Archaea (US biogas) | Disposal process | — | Rumoured | 4 Aug 2026 | BB M&A Watch 4 Aug | BP confirmed intent to sell its US biogas business alongside 2Q results; part of the wider portfolio review |
 | J Sainsbury / Argos | Pennycook-backed buyer | ≥£120m ($161m) | Recommended | 31 Jul 2026 | BB Agenda 3 Aug | Sold for ~1/10th of the 2016 price; online rivals reshaping UK general merchandise |
 | Stellantis / Free2move | German PE firm | — | Recommended | 31 Jul 2026 | BB Agenda 3 Aug | Car-sharing arm sold as Stellantis exits non-core |
 | EDP Renewables (US solar) | Ares Infrastructure Equity | ~€450m | Recommended | 31 Jul 2026 | BB Agenda 3 Aug | 80% of a 384 MW US solar portfolio |
-| CyanConnode | Esyasoft Holding | — | Live | 31 Jul 2026 | BB Agenda 3 Aug | ⚠ PUSU deadline was Aug 4 — resolving. Re-source or archive next run |
+| CyanConnode | Esyasoft Holding | — | Live | 4 Aug 2026 | BB M&A Watch 4 Aug | Esyasoft PUSU deadline today (Aug 4) — resolving. Re-source or archive next run |
 | Gamma Communications | Epiris | — | Live | 3 Aug 2026 | JPM 3 Aug | PUSU deadline Aug 5 |
 | Spire Healthcare | Toscafund | — | Live | 3 Aug 2026 | JPM 3 Aug | PUSU deadline Aug 6 |
 | AkzoNobel / coatings | Axalta (merger) | — | Live | 3 Aug 2026 | JPM 3 Aug | Shareholder votes Aug 5 |
-| Segro | Prologis | £14bn | Recommended | 3 Aug 2026 | JPM 3 Aug | Board "minded to recommend" 1,032p; PUSU/firm-bid deadline Aug 12 |
+| Segro | Prologis | ~£14bn | Recommended | 4 Aug 2026 | BB M&A Watch 4 Aug | Agreed recommended all-share offer at 1,031.7p/sh (~£14bn); supersedes the Aug 12 PUSU. Prologis paper → holders exposed to acquirer's US share price to close |
 | Commerzbank | UniCredit | — | Live | 27 Jul 2026 | BB Agenda 27 Jul | ⚠ Carried — not in Aug 3 agenda. UniCredit ~49.65% of votes; boards open to talks. **Re-source** |
 | DCC | KKR / Energy Capital Partners | £5.75bn | Recommended | 27 Jul 2026 | BB Agenda 27 Jul | ⚠ Carried — not in Aug 3 agenda. Take-private at £65.25/sh + dividends; Sept vote. **Re-source** |
 | Gooch & Housego | Take-private scheme | — | Recommended | 27 Jul 2026 | BB Agenda 27 Jul | ⚠ Carried — court/GM were Aug 26. **Re-source or archive** |
