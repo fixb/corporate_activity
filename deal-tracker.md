@@ -8,7 +8,7 @@ Unlike the weekly `news` block (a snapshot that is rebuilt each run and only sho
 week's agenda), rows here **persist until explicitly moved to the archive** — a deal only leaves the
 Open table when it `Completed` or `Lapsed`. Nothing drops silently.
 
-**Last rolled forward:** 7 August 2026
+**Last rolled forward:** 14 August 2026
 
 ## Discipline
 
@@ -39,22 +39,27 @@ Open table when it `Completed` or `Lapsed`. Nothing drops silently.
 | EDP Renewables (US solar) | Ares Infrastructure Equity | ~€450m | Recommended | 31 Jul 2026 | BB Agenda 3 Aug | 80% of a 384 MW US solar portfolio |
 | CyanConnode | Esyasoft Holding | — | Live | 4 Aug 2026 | BB M&A Watch 4 Aug | Esyasoft PUSU deadline today (Aug 4) — resolving. Re-source or archive next run |
 | Gamma Communications | Epiris | — | Live | 5 Aug 2026 | BB M&A Watch 5 Aug | PUSU deadline was Aug 5 — awaiting outcome; re-source next run |
-| Spire Healthcare | Toscafund | — | Live | 3 Aug 2026 | JPM 3 Aug | PUSU deadline Aug 6 |
+| Spire Healthcare | Toscafund | — | Live | 14 Aug 2026 | BB Agenda 14 Aug | Toscafund PUSU deadline now Aug 21 (was Aug 6) |
 | AkzoNobel / coatings | Axalta (merger) | — | Live | 5 Aug 2026 | BB M&A Watch 5 Aug | Shareholder EGM held Aug 5 on the coatings merger |
 | Segro | Prologis | ~£14bn | Recommended | 4 Aug 2026 | BB M&A Watch 4 Aug | Agreed recommended all-share offer at 1,031.7p/sh (~£14bn); supersedes the Aug 12 PUSU. Prologis paper → holders exposed to acquirer's US share price to close |
-| Commerzbank | UniCredit | — | Live | 5 Aug 2026 | BB M&A Watch 5 Aug | BaFin told UniCredit its application for a controlling stake can proceed — a key regulatory hurdle cleared in the gradual, contested takeover |
+| Commerzbank | UniCredit | — | Live | 14 Aug 2026 | BB Agenda 14 Aug | ECB reported leaning toward approving UniCredit's stake application — a further hurdle easing after BaFin's earlier clearance; Berlin still opposed |
 | DCC | KKR / Energy Capital Partners | £5.75bn | Recommended | 27 Jul 2026 | BB Agenda 27 Jul | ⚠ Carried — not in Aug 3 agenda. Take-private at £65.25/sh + dividends; Sept vote. **Re-source** |
 | Gooch & Housego | Take-private scheme | — | Recommended | 27 Jul 2026 | BB Agenda 27 Jul | ⚠ Carried — court/GM were Aug 26. **Re-source or archive** |
-| Webster Financial | Banco Santander | — | Recommended | 5 Aug 2026 | BB M&A Watch 5 Aug | US acquisition approved by the Federal Reserve — regulatory clearance obtained |
+| Webster Financial | Banco Santander | — | Recommended | 14 Aug 2026 | BB Agenda 14 Aug | Fed-approved; expected close Aug 20 |
 | Citycon | G City | — | Live | 5 Aug 2026 | BB M&A Watch 5 Aug | Preliminary tender result: G City holds 89.7% of shares/voting rights — nearing squeeze-out |
 | Goodwin plc | Strategic review | — | Rumoured | 7 Aug 2026 | BB M&A Watch 7 Aug | Commenced strategic review; weighing sale of a substantial part of its Mechanical Engineering division |
-| Pharos Energy | Ratio Petroleum | £146.4m | Contested | 7 Aug 2026 | BB M&A Watch 7 Aug | Ratio raised its offer to £146.4m for the UK oil & gas group |
+| Pharos Energy | Serica Energy vs Ratio Petroleum | 32.67p/sh (Serica) | Contested | 10 Aug 2026 | BB M&A Watch 10 Aug | Two-bidder contest: Serica's all-cash 32.6683p/sh declared final (won't raise) after Ratio's competing £146.4m bid |
 | Nscale | IPO — US listing | — | Rumoured | 7 Aug 2026 | BB M&A Watch 7 Aug | Touts ~$51bn total contracted revenue; targeting a US IPO as soon as September |
+| TK Elevator | Kone — agreed offer | €29.4bn ($33.9bn) | Contested | 14 Aug 2026 | BB Agenda 14 Aug | Agreed transatlantic lift/escalator merger; US DOJ opened in-depth antitrust review — outcome hinges on US service-base disposals/remedies |
+| Evolution AB | Candle Lake Ltd — mandatory cash offer | ~SEK 132bn (695 kr/sh) | Live | 14 Aug 2026 | BB Agenda 14 Aug | Mandatory bid triggered after Candle Lake crossed 30% (Jul 24); price merely matches the Jul 24 close, below market cap — seen as procedural |
+| JTC plc | Take-private scheme | — | Recommended | 14 Aug 2026 | BB Agenda 14 Aug | Scheme completing — last trading day Aug 19, scheme effective Aug 20 |
+| TalkTalk (wholesale) | Sky | — | Rumoured | 10 Aug 2026 | BB M&A Watch 10 Aug | Nearing exclusive talks to sell the wholesale business to Sky; terms undisclosed |
+| ZIM | Hapag-Lloyd / FIMI | — | Rumoured | 10 Aug 2026 | BB M&A Watch 10 Aug | Israel reported likely to oppose a sale of ZIM to Hapag-Lloyd and the FIMI fund (Calcalist) — political/regulatory obstacle |
 
 ## Completed / lapsed (archive)
 
-_None recorded yet. Move rows here with the resolution date and outcome when a deal closes or breaks._
+Move rows here with the resolution date and outcome when a deal closes or breaks.
 
 | Target | Acquirer / vehicle | Outcome | Resolved | Notes |
 |---|---|---|---|---|
-| — | — | — | — | — |
+| Harvey Nichols | Frasers Group (Mike Ashley) | Completed — acquired | 14 Aug 2026 | Bought out of insolvency via pre-pack administration; UK stores + online + >1,000 staff. Never an arb situation — recorded for completeness |
