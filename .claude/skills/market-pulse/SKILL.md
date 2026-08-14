@@ -96,6 +96,7 @@ never touch the `emea`/`us` blocks — those follow the separate quarterly workf
 | Page-1 prose narrating each deal | `newDeals` |
 | The "week commencing …" day-by-day list (runs to the last page) | `catalysts` |
 | Bylines and data providers named | `sources` |
+| Every deal you just wrote into `newDeals` this run | append to `history` (see below) |
 
 **`asOf` is the run date, not the agenda's week** (decided 2026-07-15). It renders as
 `Updated <asOf>`, so it must state when the page was last refreshed — that stays true however far
@@ -114,6 +115,10 @@ Field shapes:
 - `newDeals` — `[target, acquirer/vehicle, value, note]`. Include ECM items (IPOs, pulled listings)
   with the vehicle in the acquirer slot, e.g. `['KNDS','IPO — postponed','—','…']`.
 - `catalysts` — `[date, event]`, e.g. `['Jul 8','DCC — KKR/ECP PUSU deadline']`. Chronological.
+- `history` — `[date, target, acquirer/vehicle, value]`, a **separate top-level `DATA` array** (not
+  inside `news`) powering the prospect-facing "Historique 2026" tab. Unlike `news`, it is
+  **append-only and persistent**: it is the running log of every deal ever featured in Market Pulse
+  this year. Newest first, grouped by month in the renderer.
 - Escape `&` as `&amp;` in every string (these land in `innerHTML`).
 
 Keep it to roughly the current volume — ~10 `pulse` facts, ~5 `newDeals`, ~10 `catalysts`. Prefer
@@ -139,6 +144,13 @@ content entirely; this block is a snapshot, not a running log.
    anything stale (>3–4 weeks). Update the "Last rolled forward" date. See the file's own Discipline
    section. This is the one place the traceability rule and "keep tracking open deals" coexist:
    figures are only as fresh as their `Last verified` date says.
+3c. **Append to the year's deal log** — `DATA.history` (top-level array in `market-review.html`,
+   powers the prospect-facing "Historique 2026" tab). For each deal you added to `newDeals` this run,
+   prepend a `[date, target, acquirer/vehicle, value]` row (newest first; `date` = the run's short
+   date, e.g. `'Aug 14'`). **Append-only**: never rewrite or delete past rows even when the weekly
+   `news` snapshot drops them — a deal appears once, on the date first featured, value as first
+   reported. Skip a target already present (idempotency, same as `newDeals`). This is the durable
+   record the weekly snapshot is not.
 4. **Verify the render** before publishing: `preview_start` with name `corporate-activity` (python
    http.server on 8712, tracked in the repo at `.claude/launch.json` — `preview_start` reads the
    project directory, not `~/.claude`). If it reports the port busy, a parallel session already
@@ -147,7 +159,8 @@ content entirely; this block is a snapshot, not a running log.
    `read_console_messages` for errors and confirm the Market Pulse tab shows the new `asOf`, deals
    and catalysts. The tabs are plain divs, not links — click via
    `javascript_tool`: `document.querySelector('.tab[data-view="emea"]').click()`. Chart.js builds
-   lazily per tab; Market Pulse has no charts, but confirm EMEA/US still draw.
+   lazily per tab; Market Pulse has no charts, but confirm EMEA/US still draw. Also click
+   `[data-view="history"]` and confirm the new deals appear at the top of the "Historique 2026" tab.
 5. Commit and push to `main`:
    ```
    git add market-review.html deal-tracker.md && git commit -F - <<'EOF'

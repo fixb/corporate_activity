@@ -87,6 +87,7 @@
   <div class="tab active" data-view="news">📰 Market Pulse</div>
   <div class="tab" data-view="emea">🇪🇺 EMEA</div>
   <div class="tab" data-view="us">🇺🇸 US</div>
+  <div class="tab" data-view="history">🗓️ Historique 2026</div>
 </div>
 
 <!-- ========================= MARKET PULSE ========================= -->
@@ -160,6 +161,13 @@
       <div class="tblwrap"><table><thead><tr><th>Approach</th><th class="num"># deals</th><th class="num">%</th><th class="num">Value $m</th><th class="num">%</th></tr></thead><tbody id="u_appr"></tbody></table></div>
     </div>
   </div>
+</section>
+
+<!-- ========================= HISTORIQUE 2026 ========================= -->
+<section class="view" id="view-history">
+  <div class="sub-h" style="margin-bottom:16px;line-height:1.6">A running log of every deal featured in Market Pulse during 2026 — <span id="hist_count"></span> situations, most recent first. <b>Values are as first reported</b>; terms on several names (e.g. Segro/Prologis, easyJet) moved afterwards — see the Market Pulse tab for the current book. Facts only, reworded from Bloomberg / FT / J.P. Morgan sources; not affiliated with or endorsed by them.</div>
+  <h2 class="sec">Deals featured this year</h2>
+  <div class="tblwrap"><table class="wide"><thead><tr><th>First featured</th><th>Target</th><th>Acquirer / vehicle</th><th class="num">Value</th></tr></thead><tbody id="hist_body"></tbody></table></div>
 </section>
 
 <footer id="foot"></footer>
@@ -354,7 +362,53 @@ const DATA = {
       ['Aug 21','Pinewood Technology — Ridgeview PUSU deadline']
     ],
     sources: 'Facts compiled from the Bloomberg M&amp;A Weekly Agenda (L. Stamm, M. Msika) for the Kone/TK Elevator DOJ review, Frasers/Harvey Nichols, Candle Lake/Evolution AB, the UniCredit/Commerzbank ECB signal and the Aug 17–21 catalyst calendar; Bloomberg M&amp;A Watch Europe (L. Stamm) for the Serica/Pharos final offer and the TalkTalk/Sky wholesale talks; and J.P. Morgan\'s 2026 Global M&amp;A Mid-Year Outlook for the macro backdrop (1H volumes, mega-deal and cross-border data, regional splits, consideration mix, antitrust and market-condition figures). Facts only — not affiliated with or endorsed by these sources.'
-  }
+  },
+
+  /* ================================================================= */
+  /*  HISTORIQUE 2026 — persistent log of deals featured in Market     */
+  /*  Pulse. Append new newDeals here each weekly run (most recent     */
+  /*  first); never rewrite past rows. Values are as first reported.   */
+  /*  [date, target, acquirer/vehicle, value]                          */
+  /* ================================================================= */
+  history: [
+    ['Aug 14','TK Elevator','Kone — agreed offer, DOJ review','€29.4bn ($33.9bn)'],
+    ['Aug 14','Evolution AB','Candle Lake Ltd — mandatory cash offer','~SEK 132bn'],
+    ['Aug 14','Pharos Energy','Serica Energy — final cash offer','32.67p/sh'],
+    ['Aug 14','TalkTalk (wholesale)','Sky — exclusive talks','—'],
+    ['Aug 14','Harvey Nichols','Frasers Group (Mike Ashley)','—'],
+    ['Aug 3','AstraZeneca','Bristol Myers Squibb — tie-up talks','~$400bn combined'],
+    ['Aug 3','Atkore','Prysmian','$95/sh (~$3.8bn EV)'],
+    ['Jul 31','Żabka Group','Alimentation Couche-Tard','32.6bn zł ($8.7bn)'],
+    ['Jul 31','Iveco Group','Tata Motors','€14.10/sh (€16.26)'],
+    ['Jul 31','BP North Sea','Disposal process','~£2bn ($2.7bn)'],
+    ['Jul 30','Arcadis','WSP Global','€51.50/sh'],
+    ['Jul 29','Tate &amp; Lyle','Ingredion','—'],
+    ['Jul 27','Irish Continental','Management buyout','€1.2bn'],
+    ['Jul 27','Forte Biosciences','Argenx','$2.2bn'],
+    ['Jul 24','HSBC — Singapore life unit','Allianz','S$2.7bn / $2.1bn'],
+    ['Jul 24','Essendi (30.7% stake)','Blackstone / Colony IM','—'],
+    ['Jul 24','Safety Insurance','Mapfre','$105/sh'],
+    ['Jul 22','Mitie Group','OCS Group International','£3.1bn'],
+    ['Jul 22','BlueNord','Var Energi','—'],
+    ['Jul 20','Telecom Italia','Poste Italiane','€10.8bn'],
+    ['Jul 20','PolyPeptide','Samsung Biologics','$1.8bn / CHF1.46bn equity'],
+    ['Jul 20','ArisGlobal','Dassault Systèmes','~$2bn'],
+    ['Jul 17','Monte dei Paschi','Intesa Sanpaolo','€30.6bn'],
+    ['Jul 17','AkzoNobel — decorative coatings (Dulux)','Nippon Paint','€7.5bn'],
+    ['Jul 17','DCC','KKR / Energy Capital Partners','£5.7bn'],
+    ['Jul 15','PayPal','Stripe / Advent International','$53bn'],
+    ['Jul 15','Segro','Prologis','£12.6bn / $16.9bn'],
+    ['Jul 15','Delivery Hero','Uber Technologies','€11.2bn / $12.8bn mkt cap'],
+    ['Jul 15','easyJet','Castlelake vs Apollo','£6.90/sh vs 715p'],
+    ['Jul 15','Commerzbank','UniCredit','~48% of shares'],
+    ['Jul 15','ITV — Media &amp; Entertainment','Sky','up to £1.6bn / $2.15bn'],
+    ['Jul 15','Qiagen','EQT / KKR / Advent','—'],
+    ['Jul 14','Cognite','Schneider Electric','$3.1bn'],
+    ['Jul 14','David Brown Defence','Renk Group','$0.2–0.25bn'],
+    ['Jul 14','BT Group ⇄ Verizon','International JV','~$4bn rev.'],
+    ['Jul 14','Infracore','IPO — Zurich','SFr 200m'],
+    ['Jul 14','KNDS','IPO — postponed','—']
+  ]
 };
 
 /* ================================================================= */
@@ -496,6 +550,26 @@ function renderNews(){
   $('news_src').innerHTML = N.sources;
 }
 renderNews(); // Market Pulse is the default visible tab; EMEA/US charts build lazily on tab click
+
+/* ---- Historique 2026 (persistent deal log) ---- */
+function renderHistory(){
+  const H = DATA.history;
+  const MONTH = {Jan:'January',Feb:'February',Mar:'March',Apr:'April',May:'May',Jun:'June',
+                 Jul:'July',Aug:'August',Sep:'September',Oct:'October',Nov:'November',Dec:'December'};
+  let out = '', cur = '';
+  H.forEach(d=>{
+    const m = d[0].split(' ')[0];
+    if(m !== cur){
+      cur = m;
+      out += `<tr><td colspan="4" style="padding-top:16px;font-weight:600;color:#f0a830">${MONTH[m]||m} 2026</td></tr>`;
+    }
+    out += `<tr><td class="mono mut" style="white-space:nowrap">${d[0]}</td>`+
+           `<td class="tgt">${d[1]}</td><td>${d[2]}</td><td class="num amb">${d[3]}</td></tr>`;
+  });
+  $('hist_body').innerHTML = out;
+  $('hist_count').textContent = H.length;
+}
+renderHistory();
 </script>
 </body>
 </html>
