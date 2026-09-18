@@ -8,7 +8,7 @@ Unlike the weekly `news` block (a snapshot that is rebuilt each run and only sho
 week's agenda), rows here **persist until explicitly moved to the archive** — a deal only leaves the
 Open table when it `Completed` or `Lapsed`. Nothing drops silently.
 
-**Last rolled forward:** 11 September 2026
+**Last rolled forward:** 18 September 2026
 
 ## Discipline
 
@@ -19,6 +19,12 @@ Open table when it `Completed` or `Lapsed`. Nothing drops silently.
 - **Status:** `Rumoured` (press talk / process) · `Live` (bid tabled, ongoing) · `Recommended`
   (board backs it) · `Contested` (rejected / rival bids / activist opposition) · `Lapsed` · `Completed`.
 
+> **18 Sep 2026 roll-forward note.** No agenda or deal article had synced since 11 Sep; the only new PDF was
+> BofA's 15 Sep convertibles note, which carries no deal facts. No row was re-verified or added this run and no
+> `Last verified` date was bumped. Outcomes now pending a source: Telecom Italia provisional / final results of
+> the Poste offer (Sep 14 / 17) ahead of the Sep 21–25 reopening, the Orcel–Klingbeil meeting on Commerzbank
+> (Sep 14), the Mitie/OCS court meeting and EGM (Sep 16) and the DCC scheme meeting and EGM (Sep 18).
+>
 > **11 Sep 2026 roll-forward note.** Sources opened this run: Bloomberg M&A Weekly Agenda (11 Sep), Bloomberg
 > News on Poste/Telecom Italia (8 Sep), Poste Italiane's 7 Sep press release, and BofA's 9 Sep convertibles note.
 > Rows they re-confirmed are bumped; five new situations added. Rows the 7 Sep run had flagged "archive next
