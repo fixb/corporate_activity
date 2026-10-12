@@ -8,7 +8,7 @@ Unlike the weekly `news` block (a snapshot that is rebuilt each run and only sho
 week's agenda), rows here **persist until explicitly moved to the archive** — a deal only leaves the
 Open table when it `Completed` or `Lapsed`. Nothing drops silently.
 
-**Last rolled forward:** 7 September 2026
+**Last rolled forward:** 12 October 2026
 
 ## Discipline
 
@@ -19,58 +19,69 @@ Open table when it `Completed` or `Lapsed`. Nothing drops silently.
 - **Status:** `Rumoured` (press talk / process) · `Live` (bid tabled, ongoing) · `Recommended`
   (board backs it) · `Contested` (rejected / rival bids / activist opposition) · `Lapsed` · `Completed`.
 
-> **7 Sep 2026 roll-forward note.** No agenda was saved for the weeks of Aug 21 or Aug 28, so every
-> row below that was last verified on or before 14 Aug is now 3+ weeks old and carries ⚠. Only the
-> Sep 4 Bloomberg Agenda / M&A Watch Europe were opened this run; rows they re-confirmed are the
-> only ones bumped, plus the two rows the Natixis CB monthly (1 Sep) re-sourced. Next run: re-source or
-> archive every ⚠ row.
+> **12 Oct 2026 roll-forward note.** Gap of five weeks since the last weekly run (7 Sep). The 11 Sep
+> Bloomberg Agenda is in the folder but was never published; no agendas for 18 Sep, 25 Sep or 2 Oct
+> were saved. This run opened the 9 Oct BB Agenda, the J.P. Morgan EMEA risk-arb survey (9 Oct; the
+> full EMEA pending list with terms and timetables), the Natixis September CB monthly (1 Oct) and the
+> BofA CB chartbook (1 Oct). Rows those re-confirmed are bumped. Rows stale since early/mid-August
+> **and absent from the JPM pending list** were moved to the archive as "Dropped — unsourced" rather
+> than carried as assumptions; re-add them if a future PDF surfaces them.
 
 ## Open
 
 | Target | Acquirer / vehicle | Value | Status | Last verified | Source | Notes |
 |---|---|---|---|---|---|---|
-| Cirsa Enterprises | Lottomatica — agreed all-share takeover | ~€2.8bn ($3.2bn) | Recommended | 4 Sep 2026 | BB Agenda 4 Sep | All-share; would create one of the largest gaming / sports-betting groups. Strategy shift for Lottomatica away from domestic bolt-ons. MS: strong rationale but slower underlying growth at Cirsa; Bernstein: scale, dilution and execution concerns. Cirsa holders carry Lottomatica share-price risk to close |
-| Bodycote | Veritas Capital Fund Management — agreed cash offer | 940p/sh (~£1.65bn equity) | Recommended | 4 Sep 2026 | BB Agenda 4 Sep | 932.8p cash + 7.2p interim dividend. Confirmed sponsor take-private of a UK mid-cap industrial |
-| Deutsche Telekom ⇄ T-Mobile US | Potential parent/sub merger — Elliott opposes | — | Contested | 4 Sep 2026 | BB Agenda 4 Sep | Elliott has built a sizeable DT stake and signalled opposition to a potential merger with T-Mobile US; wants alternative value levers incl. larger buybacks. No bid tabled |
-| Air Liquide | Elliott — activist stake | — | Rumoured | 4 Sep 2026 | BB Agenda 4 Sep | Elliott pushing for margin improvement. Bernstein sees existing strategy plus activist-led tweaks as potentially compelling. Not an M&A situation yet |
-| Syensqo — performance & care division | Blackstone, Apollo among PE suitors | ≥€3bn | Rumoured | 4 Sep 2026 | BB Agenda 4 Sep | Pre-event: sponsors said to be weighing bids. Disposal would accelerate the portfolio overhaul that followed the Dec 2023 separation from Solvay |
-| Banco BPI — 33.35% BFA stake | Congolian Financial | — | Recommended | 4 Sep 2026 | BB M&A Watch 4 Sep | Agreed stake sale; terms not stated in the source |
-| Delivery Hero | Uber Technologies — voluntary public cash offer | €41.50/sh cash | Live | 1 Sep 2026 | Natixis CB monthly 1 Sep (facts of Aug 27) | Offer document published Aug 27 after BaFin approval; ~108% premium to the May 8 undisturbed close; acceptance period runs to Nov 5; 50% minimum acceptance plus regulatory conditions. The four DH converts (1% 2027, 1.5% 2028, 2.125% 2029, 3.25% 2030) are far out of the money — CoC ratio adjustment adds nothing over early redemption at par + accrued |
-| Qiagen | EQT / KKR — formal due diligence | ~$50/sh indicative | Rumoured | 1 Sep 2026 | Natixis CB monthly 1 Sep | Two sponsors in formal due diligence, possibly alongside strategics; indicative price ~$50/sh; parties could still walk, leaving Qiagen independent |
-| Airbus — US space activities | Disposal — gauging buyer interest | — | Rumoured | 1 Sep 2026 | Natixis CB monthly 1 Sep (citing FT) | Florida plant + Arrow small-satellite family; revenue not disclosed (sources: several hundred $m). Airbus declined to comment |
-| Trevi-Finanziaria Industriale | Webuild — voluntary tender (rival ICoP bid) | €295m | Contested | 1 Sep 2026 | Natixis CB monthly 1 Sep | Consob suspended its review of Webuild's Jul 29 offer pending extra information requested Aug 24 (up to 15 days); Webuild's bid tops a competing ICoP offer |
-| Commerzbank | UniCredit | — | Live | 4 Sep 2026 | BB Agenda / M&A Watch 4 Sep | Hesse premier Boris Rhein met UniCredit CEO Orcel seeking commitments on Frankfurt HQ, key operations and jobs (FAZ). ECB had been reported (14 Aug) as leaning toward approving the stake application; Berlin still opposed |
-| Monte dei Paschi | Intesa Sanpaolo (Banco BPM walked) | ~€34.6bn | Contested | 3 Aug 2026 | BB M&A Watch 3 Aug | ⚠ Intesa bid not re-sourced since 3 Aug. 4 Sep (BB Agenda): ECB approved the merger-by-incorporation of Mediobanca into MPS and related reorganisation steps. Italy was to exit MPS by end-Sept — **re-source** |
-| AstraZeneca | Bristol Myers Squibb — tie-up talks | ~$400bn combined | Rumoured | 3 Aug 2026 | FT / JPM 3 Aug | ⚠ 5 weeks unsourced. Early-stage talks; cash-and-shares likely; oncology overlap → antitrust risk; UK redomicile sensitivity. **Re-source or archive** |
-| Atkore | Prysmian | $95/sh (~$3.8bn EV) | Recommended | 3 Aug 2026 | BB M&A Watch 3 Aug | ⚠ 5 weeks unsourced. All-cash; both boards approve. **Re-source** |
-| Żabka Group | Alimentation Couche-Tard | 32.6bn zł ($8.7bn) | Recommended | 3 Aug 2026 | BB M&A Watch 3 Aug | ⚠ 5 weeks unsourced. Tender at 32 zł/sh was due to launch in Sept; Couche-Tard CEO expected pressure to raise. **Re-source** |
-| easyJet | Apollo — agreed offer | £5.7bn ($7.7bn) | Recommended | 7 Aug 2026 | BB M&A Watch 7 Aug | ⚠ 4 weeks unsourced. Apollo agreed take-private Aug 7, ending the contest with Castlelake. 4 Sep M&A Watch links a piece on easyJet P/E doubling on M&A likelihood — headline only, no figures. **Re-source** |
-| Subsea 7 | Saipem (merger) | — | Live | 1 Sep 2026 | Natixis CB monthly 1 Sep | Saipem confirmed all US HSR waiting periods have expired, clearing the US leg; non-US approvals (EC/ACCC/CADE per JPM 3 Aug) still pending; est. close Nov–Dec 2026 (JPM 3 Aug) |
-| Senior plc | Take-private scheme | — | Live | 3 Aug 2026 | JPM 3 Aug | ⚠ 5 weeks unsourced. 10/12 approvals obtained; guided close by end-2026. **Re-source** |
-| Arcadis | WSP Global | €51.50/sh | Contested | 31 Jul 2026 | BB Agenda 3 Aug | ⚠ 5+ weeks unsourced. Boards rejected 2nd unsolicited proposal. **Re-source or archive** |
-| Iveco Group | Tata Motors | €14.10/sh (€16.26) | Contested | 31 Jul 2026 | BB Agenda 3 Aug | ⚠ 5+ weeks unsourced. Petrus Advisers urging holders to withhold support. **Re-source** |
-| BP North Sea | Disposal process | ~£2bn ($2.7bn) | Rumoured | 31 Jul 2026 | BB Agenda 3 Aug | ⚠ 5+ weeks unsourced. **Re-source or archive** |
-| BP / Archaea (US biogas) | Disposal process | — | Rumoured | 4 Aug 2026 | BB M&A Watch 4 Aug | ⚠ 5 weeks unsourced. **Re-source or archive** |
-| J Sainsbury / Argos | Pennycook-backed buyer | ≥£120m ($161m) | Recommended | 31 Jul 2026 | BB Agenda 3 Aug | ⚠ 5+ weeks unsourced; small, no arb. **Archive next run** unless re-sourced |
-| Stellantis / Free2move | German PE firm | — | Recommended | 31 Jul 2026 | BB Agenda 3 Aug | ⚠ 5+ weeks unsourced; small, no arb. **Archive next run** unless re-sourced |
-| EDP Renewables (US solar) | Ares Infrastructure Equity | ~€450m | Recommended | 31 Jul 2026 | BB Agenda 3 Aug | ⚠ 5+ weeks unsourced; asset sale, no arb. **Archive next run** unless re-sourced |
-| CyanConnode | Esyasoft Holding | — | Live | 4 Aug 2026 | BB M&A Watch 4 Aug | ⚠ PUSU deadline was Aug 4 — outcome never sourced. **Re-source or archive** |
-| Gamma Communications | Epiris | — | Live | 5 Aug 2026 | BB M&A Watch 5 Aug | ⚠ PUSU deadline was Aug 5 — outcome never sourced. **Re-source or archive** |
-| Spire Healthcare | Toscafund | — | Live | 14 Aug 2026 | BB Agenda 14 Aug | ⚠ Toscafund PUSU deadline was Aug 21 — outcome not sourced. **Re-source or archive** |
-| AkzoNobel / coatings | Axalta (merger) | — | Live | 5 Aug 2026 | BB M&A Watch 5 Aug | ⚠ 5 weeks unsourced. EGM held Aug 5 on the coatings merger. **Re-source** |
-| Segro | Prologis | ~£14bn | Recommended | 4 Aug 2026 | BB M&A Watch 4 Aug | ⚠ 5 weeks unsourced. Recommended all-share at 1,031.7p/sh; holders exposed to Prologis US share price to close. **Re-source** |
-| DCC | KKR / Energy Capital Partners | £5.75bn | Recommended | 27 Jul 2026 | BB Agenda 27 Jul | ⚠ 6 weeks unsourced. Take-private at £65.25/sh + dividends; Sept vote was expected. **Re-source** |
-| Gooch & Housego | Take-private scheme | — | Recommended | 27 Jul 2026 | BB Agenda 27 Jul | ⚠ 6 weeks unsourced; court/GM were Aug 26 — likely completed but unconfirmed. **Re-source or archive** |
-| Webster Financial | Banco Santander | — | Recommended | 14 Aug 2026 | BB Agenda 14 Aug | ⚠ Expected close was Aug 20 — completion not sourced. **Confirm and archive** |
-| JTC plc | Take-private scheme | — | Recommended | 14 Aug 2026 | BB Agenda 14 Aug | ⚠ Scheme was due to become effective Aug 20 — completion not sourced. **Confirm and archive** |
-| Citycon | G City | — | Live | 5 Aug 2026 | BB M&A Watch 5 Aug | ⚠ 5 weeks unsourced. G City held 89.7% after preliminary tender result — squeeze-out likely. **Re-source or archive** |
-| Goodwin plc | Strategic review | — | Rumoured | 7 Aug 2026 | BB M&A Watch 7 Aug | ⚠ 4 weeks unsourced. Weighing sale of much of its Mechanical Engineering division. **Re-source** |
-| Pharos Energy | Serica Energy vs Ratio Petroleum | 32.67p/sh (Serica) | Contested | 10 Aug 2026 | BB M&A Watch 10 Aug | ⚠ 4 weeks unsourced. Serica's all-cash 32.6683p/sh declared final after Ratio's £146.4m rival bid. **Re-source** |
-| Nscale | IPO — US listing | — | Rumoured | 7 Aug 2026 | BB M&A Watch 7 Aug | ⚠ 4 weeks unsourced. Was targeting a US IPO as soon as September. **Re-source** |
-| TK Elevator | Kone — agreed offer | €29.4bn ($33.9bn) | Contested | 14 Aug 2026 | BB Agenda 14 Aug | ⚠ 3+ weeks unsourced. US DOJ in-depth antitrust review; outcome hinges on US service-base remedies. **Re-source** |
-| Evolution AB | Candle Lake Ltd — mandatory cash offer | ~SEK 132bn (695 kr/sh) | Live | 14 Aug 2026 | BB Agenda 14 Aug | ⚠ 3+ weeks unsourced. Mandatory bid after Candle Lake crossed 30% (Jul 24); price at the Jul 24 close, seen as procedural. **Re-source** |
-| TalkTalk (wholesale) | Sky | — | Rumoured | 10 Aug 2026 | BB M&A Watch 10 Aug | ⚠ 4 weeks unsourced. Was nearing exclusive talks; terms undisclosed. **Re-source** |
-| ZIM | Hapag-Lloyd / FIMI | — | Rumoured | 10 Aug 2026 | BB M&A Watch 10 Aug | ⚠ 4 weeks unsourced. Israel reported likely to oppose (Calcalist). **Re-source or archive** |
+| PTC | Schneider Electric — agreed acquisition | ~$23bn | Live | 9 Oct 2026 | BB Agenda 9 Oct | Schneider's largest deal ever; engineering software for auto/aero/medtech. Analysts cautious on size, mostly-debt financing, AI-disruption risk. BI: case rests on ~€800m revenue synergies, Cognite as integration layer over PTC + AVEVA |
+| Shelly Group | Schneider Electric — cash tender | €70/sh (~€1.2bn) | Live | 9 Oct 2026 | JPM 9 Oct / Natixis 1 Oct | Announced 24 Sep; 27% premium to Jul 28 undisturbed; 95% min acceptance (squeeze-out). Regulatory approval required; offer doc not yet out. Exp. close 31 Mar 2027 |
+| Evonik | BASF — approach | €22.15/sh (~€10.3bn) | Contested | 9 Oct 2026 | BB Agenda 9 Oct / Natixis 1 Oct (citing FT) | Proposal to Evonik and RAG-Stiftung rejected as too low for formal talks/DD. BASF supervisory board to meet; higher offer possible (Reuters) |
+| Axalta Coating Systems | Akzo Nobel — all-share merger | $25bn (0.6539 AKZA/sh) | Live | 9 Oct 2026 | BB Agenda 9 Oct / JPM 9 Oct | Both shareholder votes passed 5 Aug. Akzo to offer EU remedies (vehicle-refinish overlaps), filing expected week of 12 Oct. Akzo special dividend €2.5bn less 2026 ordinaries. Exp. close 31 Jan 2027 |
+| Monte dei Paschi | Intesa Sanpaolo — exchange offer | €1.00 + 1.60 ISP per BMPS | Contested | 9 Oct 2026 | BB Agenda 9 Oct / JPM 9 Oct | Delfin (17.6%) tendering in full; Edizione (1.45%) to tender (Ansa). Intesa adds €0.25 cash per share if OPAS continues; conditions tied to MPS EGM outcome on BPM/Generali bids. Exp. close 31 Mar 2027 |
+| Banco BPM | Monte dei Paschi — exchange offer | 1.567 BMPS per BAMI | Contested | 9 Oct 2026 | JPM 9 Oct / BB Agenda 9 Oct | MPS defence bid, announced 21 Aug. Caltagirone plans to reject. MPS EGM 29 Oct. Exp. close 15 Feb 2027 |
+| Banca Generali | Monte dei Paschi — exchange offer | 6.958 BMPS per BGN | Contested | 9 Oct 2026 | JPM 9 Oct / BB Agenda 9 Oct | Twin of the BPM bid; same EGM (29 Oct), Caltagirone opposed. Exp. close 15 Feb 2027 |
+| Mediobanca | Monte dei Paschi — merger by incorporation | 2.45 BMPS per MB | Live | 9 Oct 2026 | JPM 9 Oct | ECB approved (BB 4 Sep). Ratio not adjustable; effective by end-2026. MPS EGM 29 Oct |
+| Commerzbank | UniCredit — exchange offer | 0.485 UCG per CBK | Live | 9 Oct 2026 | BB Agenda 9 Oct / JPM 9 Oct | EC review deadline 16 Nov. Klingbeil coordinating stance with Hesse and Frankfurt. FDI received; antitrust, financial approvals, FSR pending. Exp. close 31 Dec 2026 |
+| Recordati | CVC — cash tender | €53/sh | Live | 9 Oct 2026 | BB Agenda 9 Oct / JPM 9 Oct | All antitrust, FDI and FSR clearances obtained. Tender launched 31 Aug, expires 23 Oct |
+| Permanent TSB | BAWAG — scheme | €2.97/sh | Recommended | 9 Oct 2026 | BB Agenda 9 Oct / JPM 9 Oct | PTSB dismissed Axis Capital's statements as speculative and conditional. Case-management hearing 12 Oct; final court sanction 27 Oct. Financial regulatory approval pending |
+| Trevi-Finanziaria Industriale | Webuild — voluntary tender (rival ICoP bid) | €5.165/sh | Contested | 9 Oct 2026 | BB Agenda 9 Oct / Natixis 1 Oct | CONSOB approved the offer document. Trevi board says the new €5.165 price is at the low end of its fair-value range |
+| Delivery Hero | Uber Technologies — voluntary public cash offer | €41.50/sh cash | Recommended | 9 Oct 2026 | JPM 9 Oct / Natixis 1 Oct | Boards issued a joint reasoned statement recommending acceptance (~127% premium to 3-month VWAP). Acceptance period ends 5 Nov; completion expected H2 2027 (JPM: 31 Dec 2027). CEO exit cancelled (WSJ). Naver dropped Baemin stake interest |
+| Cirsa Enterprises | Lottomatica — all-share takeover | €1.56 + 0.668 LTMC per Cirsa (~€2.8bn) | Recommended | 9 Oct 2026 | JPM 9 Oct | Lottomatica EGM 23 Nov; Cirsa EGM Nov 2026. Regulatory approvals required. Exp. close 30 Jun 2027 |
+| Bodycote | Veritas Capital — scheme | 932.8p cash (+7.2p interim div) | Recommended | 9 Oct 2026 | JPM 9 Oct | Antitrust + FDI required; scheme doc pending. Exp. close 31 Mar 2027 |
+| easyJet | Apollo — scheme | 715p/sh | Recommended | 9 Oct 2026 | JPM 9 Oct | Scheme doc on/before 15 Oct; court/shareholder vote expected week of 9 Nov. Antitrust, FDI, aviation licences required. Exp. close 31 Mar 2027 |
+| Segro | Prologis — cash + shares | 258p + 0.069 PLD (alt. 0.092 PLD) | Recommended | 9 Oct 2026 | JPM 9 Oct | Segro shareholders approved 28 Sep. Antitrust/FDI, PLD LSE admission and NYSE listing pending. Exp. close 30 Jun 2027 |
+| Subsea 7 | Saipem — merger | 6.688 SPM per SUBC + cash components | Live | 9 Oct 2026 | JPM 9 Oct | US cleared (HSR). EC and ACCC in Phase 2; CADE under appeal. Exp. close 31 Dec 2026 |
+| Iveco Group | Tata Motors — cash tender | €14.10/sh | Live | 9 Oct 2026 | JPM 9 Oct / BB Agenda 9 Oct | Antitrust, FSR and defence-sale conditions cleared. Tender launched 8 Sep, expires 26 Oct; EGM 16 Oct. Trades above offer. Exp. close 6 Nov 2026 |
+| Żabka Group | Alimentation Couche-Tard — tender | PLN 32/sh | Recommended | 9 Oct 2026 | JPM 9 Oct | ~58% irrevocables. EC, Romania FDI and EU FSR still required. Exp. close 31 Dec 2026 |
+| Gamma Communications | Epiris — scheme | 1,120p/sh | Recommended | 9 Oct 2026 | JPM 9 Oct | Scheme doc 25 Sep; shareholder approval 20 Oct. Antitrust, FDI, Dutch telecom approvals. Exp. close 31 Mar 2027 |
+| Spire Healthcare | Toscafund — scheme | 250p/sh | Recommended | 9 Oct 2026 | JPM 9 Oct | Firm offer 7 Sep. FCA condition pending. Exp. close 31 Mar 2027 |
+| Gooch & Housego | Take-private scheme | — | Recommended | 9 Oct 2026 | BB Agenda 9 Oct | Court sanction hearing 14 Oct (earlier Aug 26 date had slipped) |
+| Evolution AB | Candle Lake Ltd — mandatory cash offer | SEK 695/sh | Live | 9 Oct 2026 | JPM 9 Oct | Tender ran 17 Aug–15 Sep; acceptance result not in source. Stock trades ~17% above the offer — procedural bid. Confirm outcome, then archive |
+| Allfunds Group | Deutsche Börse — cash + shares | €5.94 + 0.01 DB1 per share | Recommended | 9 Oct 2026 | JPM 9 Oct | Allfunds holders approved 12 Mar. Antitrust + FDI pending; FSR cleared. Cash cut by a pro-rated share of the 2026 DB1 dividend if completion falls after its record date. Exp. close 31 Mar 2027 |
+| Argan | Warehouses De Pauw — cash + shares | €11.00 + 3.00 WDP per ARG | Recommended | 9 Oct 2026 | JPM 9 Oct | Voting commitments ~52% Argan / ~19% WDP; both EGMs Nov 2026; French tax ruling required. Exp. close 31 Jan 2027 |
+| BlueNord | Var Energi — cash + shares | NOK 76.83 + 9.7153 VAR per BNOR | Recommended | 9 Oct 2026 | JPM 9 Oct | Approved by BlueNord holders 24 Aug. Antitrust, FDI and Danish energy-ministry approvals pending. Exp. close 31 Dec 2026 |
+| Ceconomy | JD.com — cash offer | €4.60/sh | Live | 9 Oct 2026 | JPM 9 Oct | EU FSR in Phase 2; Austrian FDI pending. Expected close (30 Sep 2026) has passed — timetable slipping |
+| Exail Technologies | Thales — block + mandatory offer | €134/sh | Live | 9 Oct 2026 | JPM 9 Oct | Gorgé family 35.51% stake purchase guided to H2 2027, then mandatory offer. Exp. close 31 Jan 2028 |
+| Intertek | EQT — scheme | 6,000p/sh | Recommended | 9 Oct 2026 | JPM 9 Oct | Shareholders approved 6 Aug. Antitrust + FDI pending. Exp. close 31 Mar 2027 |
+| Mitie Group | OCS — scheme | 218.5p/sh | Recommended | 9 Oct 2026 | JPM 9 Oct | Vote 16 Sep. UK CMA, EC and NSIA pending. Exp. close 15 Feb 2027 |
+| Nagarro | Persistent Systems — cash tender | €81/sh | Live | 9 Oct 2026 | JPM 9 Oct | Tender ran to 17 Sep. Antitrust, FDI and RBI (FEMA) pending; closing guided Q4 2026/Q1 2027 |
+| OCI | NNS — cash tender | €4.10/sh | Live | 9 Oct 2026 | JPM 9 Oct | No minimum acceptance; launched 15 Sep, expires 17 Nov |
+| OCI | Orascom Construction — share exchange | 0.46 ORAS per OCI | Live | 9 Oct 2026 | JPM 9 Oct | OCI vote still required; JPM shows a wide headline spread with withholding-tax caveat. Exp. close 31 Dec 2026 |
+| PolyPeptide | Samsung Biologics — cash tender | CHF 44.31/sh | Live | 9 Oct 2026 | JPM 9 Oct | Tender expires 12 Oct. Antitrust + FDI pending. Exp. close 31 Dec 2026 — confirm result next run |
+| Rotork | ABB — scheme | 503p/sh | Recommended | 9 Oct 2026 | JPM 9 Oct | Shareholders approved 3 Sep. Antitrust + FDI pending. Exp. close 30 Jun 2027 |
+| Tate & Lyle | Ingredion — scheme | 595p + interim div up to 7p | Recommended | 9 Oct 2026 | JPM 9 Oct | Approved 28 Jul. Antitrust + FSR pending. Exp. close 31 Dec 2027 |
+| Teck Resources | Anglo American — merger | 1.33 AAL per TECK | Recommended | 9 Oct 2026 | JPM 9 Oct | China antitrust the last outstanding approval. Anglo pre-completion special dividend ~$4.5bn. Exp. close 31 Dec 2026 |
+| Rexel → GCG | Rexel — acquisition | ~$1.4bn EV | Recommended | 1 Oct 2026 | Natixis 1 Oct | Funded with cash, ~€800m debt and a €500m ABB at €34.75 (1% discount). EPS-accretive in year one per company. No arb (target private) |
+| Energy Assets Group | Macquarie | — | Live | 9 Oct 2026 | BB Agenda 9 Oct | UK CMA weighing Macquarie's remedy (sale of non-domestic, non-smart gas metering) to settle phase 1 |
+| Rightmove | Sachem Head — reported ~6% stake | — | Rumoured | 9 Oct 2026 | BB Agenda 9 Oct | Times report on stake; Betaville bid chatter flagged as unconfirmed. BI: depressed valuation could attract renewed interest |
+| Pennon Group | Rights issue | £550m | Live | 9 Oct 2026 | BB Agenda 9 Oct | Subscription opens 12 Oct; dividend cut; funds £1bn extra investment to 2030. Shares at 20+ year low |
+| Iberdrola — East Anglia Two (49%) | Stake sale | project ~€5bn | Rumoured | 1 Oct 2026 | Natixis 1 Oct (citing Expansión) | BofA and BBVA advising |
+| Fnac Darty | EP FR Holdco — tender offer | — | Live | 1 Oct 2026 | Natixis 1 Oct | Formal EU merger notification filed; offer covers shares and OCEANEs |
+| Airbus — US space activities | Disposal — gauging buyer interest | — | Rumoured | 1 Oct 2026 | Natixis 1 Oct (citing FT) | Florida plant + Arrow small-satellite family; revenue not disclosed (sources: several hundred $m) |
+| Nscale | IPO — US listing | — | Rumoured | 1 Oct 2026 | Natixis 1 Oct | Raised $3.36bn via a pre-IPO convertible, incl. a $1bn Nvidia commitment |
+| Deutsche Telekom ⇄ T-Mobile US | Potential parent/sub merger — Elliott opposes | — | Contested | 4 Sep 2026 | BB Agenda 4 Sep | ⚠ 5 weeks unsourced. No bid tabled. **Re-source or archive** |
+| Air Liquide | Elliott — activist stake | — | Rumoured | 4 Sep 2026 | BB Agenda 4 Sep | ⚠ 5 weeks unsourced. Not an M&A situation. **Archive next run** unless re-sourced |
+| Syensqo — performance & care division | Blackstone, Apollo among PE suitors | ≥€3bn | Rumoured | 4 Sep 2026 | BB Agenda 4 Sep | ⚠ 5 weeks unsourced. **Re-source** |
+| Banco BPI — 33.35% BFA stake | Congolian Financial | — | Recommended | 4 Sep 2026 | BB M&A Watch 4 Sep | ⚠ 5 weeks unsourced. **Re-source or archive** |
+| Qiagen | EQT / KKR — formal due diligence | ~$50/sh indicative | Rumoured | 1 Sep 2026 | Natixis CB monthly 1 Sep | ⚠ 6 weeks unsourced; Natixis 1 Oct mentions only an FDA clearance, nothing on the process. **Re-source or archive** |
 
 ## Completed / lapsed (archive)
 
@@ -78,5 +89,24 @@ Move rows here with the resolution date and outcome when a deal closes or breaks
 
 | Target | Acquirer / vehicle | Outcome | Resolved | Notes |
 |---|---|---|---|---|
+| AstraZeneca | Bristol Myers Squibb — tie-up talks | Dropped — unsourced | 12 Oct 2026 | Last sourced 3 Aug (FT / JPM). No mention in any PDF since. Outcome unknown |
+| Atkore | Prysmian | Dropped — unsourced | 12 Oct 2026 | Last sourced 3 Aug ($95/sh, ~$3.8bn EV). US target, outside the JPM EMEA list. Outcome unknown |
+| Senior plc | Take-private scheme | Dropped — unsourced | 12 Oct 2026 | Last sourced 3 Aug; absent from JPM 9 Oct pending list — likely completed, unconfirmed |
+| Arcadis | WSP Global | Dropped — unsourced | 12 Oct 2026 | Boards rejected 2nd proposal (31 Jul); absent from JPM 9 Oct list. Outcome unknown |
+| BP North Sea | Disposal process | Dropped — unsourced | 12 Oct 2026 | Last sourced 31 Jul |
+| BP / Archaea (US biogas) | Disposal process | Dropped — unsourced | 12 Oct 2026 | Last sourced 4 Aug |
+| J Sainsbury / Argos | Pennycook-backed buyer | Dropped — unsourced | 12 Oct 2026 | Small, no arb. Last sourced 31 Jul |
+| Stellantis / Free2move | German PE firm | Dropped — unsourced | 12 Oct 2026 | Small, no arb. Last sourced 31 Jul |
+| EDP Renewables (US solar) | Ares Infrastructure Equity | Dropped — unsourced | 12 Oct 2026 | Asset sale, no arb. Last sourced 31 Jul |
+| CyanConnode | Esyasoft Holding | Dropped — unsourced | 12 Oct 2026 | PUSU 4 Aug; outcome never sourced |
+| DCC | KKR / Energy Capital Partners | Dropped — unsourced | 12 Oct 2026 | Last sourced 27 Jul (£65.25/sh); absent from JPM 9 Oct pending list — likely completed, unconfirmed |
+| Webster Financial | Banco Santander | Dropped — unsourced | 12 Oct 2026 | Expected close 20 Aug; completion never sourced |
+| JTC plc | Take-private scheme | Dropped — unsourced | 12 Oct 2026 | Scheme due effective 20 Aug; completion never sourced |
+| Citycon | G City | Dropped — unsourced | 12 Oct 2026 | G City at 89.7% (5 Aug); squeeze-out likely; unconfirmed |
+| Goodwin plc | Strategic review | Dropped — unsourced | 12 Oct 2026 | Last sourced 7 Aug |
+| Pharos Energy | Serica Energy vs Ratio Petroleum | Dropped — unsourced | 12 Oct 2026 | Serica 32.67p final (10 Aug); absent from JPM list. Outcome unknown |
+| TK Elevator | Kone | Dropped — unsourced | 12 Oct 2026 | €29.4bn; DOJ in-depth review (14 Aug). Target private, outside JPM list. Re-add if resurfaced |
+| TalkTalk (wholesale) | Sky | Dropped — unsourced | 12 Oct 2026 | Last sourced 10 Aug |
+| ZIM | Hapag-Lloyd / FIMI | Dropped — unsourced | 12 Oct 2026 | Last sourced 10 Aug |
 | Genel Energy | DNO | Lapsed — DNO said it will not make an offer | 4 Sep 2026 | Genel's board showed no willingness to engage after DNO's proposal; DNO walked at the Sep 4 PUSU deadline (BB Agenda / M&A Watch 4 Sep) |
 | Harvey Nichols | Frasers Group (Mike Ashley) | Completed — acquired | 14 Aug 2026 | Bought out of insolvency via pre-pack administration; UK stores + online + >1,000 staff. Never an arb situation — recorded for completeness |
