@@ -8,7 +8,11 @@ Unlike the weekly `news` block (a snapshot that is rebuilt each run and only sho
 week's agenda), rows here **persist until explicitly moved to the archive** — a deal only leaves the
 Open table when it `Completed` or `Lapsed`. Nothing drops silently.
 
-**Last rolled forward:** 12 October 2026
+**Last rolled forward:** 13 October 2026
+
+> **13 Oct 2026 note.** No new Bloomberg agenda since 9 Oct. Only new inputs were the UBS EMEA/US
+> M&A Review 3Q26 decks (quarterly statistics; they name situations but give no per-deal terms), so
+> no `Last verified` dates were bumped.
 
 ## Discipline
 
