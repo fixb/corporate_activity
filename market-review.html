@@ -185,138 +185,143 @@
 <!-- ================================================================= -->
 <script>
 const DATA = {
-  quarter: '2Q26',
-  date: 'July 2026',
+  quarter: '3Q26',
+  date: 'October 2026',
 
   /* ------------------------------- EMEA ------------------------------- */
   emea: {
     // KPI cards: {lbl, val, sub, cls?}  cls = 'pos' | 'neg' (value colour)
     kpis: [
-      {lbl:'Announced deals',   val:'41',     sub:'28 definitive · quarterly record'},
-      {lbl:'Announced value',   val:'$152bn', sub:'all-time high · definitive $75bn'},
-      {lbl:'Avg definitive size',val:'$2.7bn',sub:'vs $6.6bn Q1 · hist. avg $2.1bn'},
-      {lbl:'Average premium',   val:'33%',    sub:'broadly in line with history'},
-      {lbl:'Cash (by count)',   val:'83%',    sub:'58% by value'},
-      {lbl:'UK (by count)',     val:'49%',    sub:'top geography · 37% by value'},
-      {lbl:'Avg duration',      val:'151d',   sub:'lowest since Q4 2024'},
-      {lbl:'Shareholder oppos.',val:'15%',    sub:'> hist. avg 11% · 0 hostile', cls:'neg'}
+      {lbl:'Announced deals',   val:'50',      sub:'vs 41 in Q2 · new quarterly record'},
+      {lbl:'Announced value',   val:'$168.6bn',sub:'record · vs $152.1bn in Q2', cls:'pos'},
+      {lbl:'Avg definitive size',val:'$3.5bn', sub:'vs $3.2bn Q2 · hist. avg $2.2bn'},
+      {lbl:'Average premium',   val:'31.5%',   sub:'vs 32.9% Q2 · cash deals 40.9%'},
+      {lbl:'Cash (by count)',   val:'74%',     sub:'53.3% by value · hist. 78% / 57.6%'},
+      {lbl:'UK (by count)',     val:'42%',     sub:'top geography · 34% by value'},
+      {lbl:'Avg duration',      val:'119d',    sub:'vs 150d in Q2'},
+      {lbl:'Shareholder oppos.',val:'16%',     sub:'> hist. avg ~11% · 1 hostile (turned friendly)', cls:'neg'}
     ],
     // Key takeaways: HTML allowed (<b>, <span class="k">…</span>)
     highlights: [
-      'Sharp rebound after an unusually weak Q1: <b>41 deals</b> (28 definitive), a new quarterly record by count.',
-      'Definitive value driven by <b>BMPS</b> and <b>Intertek</b> (only ones &gt;$10bn), <span class="k">64%</span> of total definitive value between them.',
-      'Deals &gt;$10bn still non-definitive at quarter end: <b>Akzo Nobel, Delivery Hero, Segro, UMG</b>.',
-      'Wide premium dispersion; low-premium situations: <b>Kontron 4.9%</b> and <b>Hugo Boss 4.3%</b> (mandatory offers).',
-      'Acquiror next-day share reaction: <span class="k">+0.4%</span> in cash, <span class="k">−2.2%</span> in stock/mixed.',
-      '<b>4 counterbids</b> (10% of deals); bump rate 7% (hist. 4%), average offer improvement 7% (hist. 10%).',
-      'YTD, <b>Financials</b> account for <span class="k">39%</span> of value, far ahead of Industrials at 16%.',
-      'Sponsor activity 46% by count / 29% by value: <b>Recordati, Intertek, DCC</b>.',
-      'Failure rate 12.2% (all at pre-event stage); only <b>Senior/Advent</b> stopped after a competing offer. Avg P&amp;L on broken deals −11.6%.'
+      'Records on both counts: <b>50 deals</b> (vs 41 in Q2) and <b>$168.6bn</b> announced (vs $152.1bn).',
+      'Five definitive deals &gt;$10bn — <b>Banco BPM, Segro, Delivery Hero, Banca Generali, Zabka</b> — <span class="k">58%</span> of definitive value; <b>Evonik</b> the only $10bn+ non-definitive situation.',
+      'UK still the leading target market (42% by count / 34% by value); <b>Italy</b> second by value at 27% on bank consolidation.',
+      'Inbound UK M&amp;A YTD: <b>34 deals, $118.3bn</b> (+21% by count / +165% by value vs 2025 YTD); US acquirers 59% of deals, 69% of value.',
+      '<b>Industrials</b> most active by count (31%, 20% of value); <b>Financials</b> lead by value (27%) on only 6% of count. YTD Financials <span class="k">34%</span> of value vs Industrials 17%.',
+      'Sponsors retreat: 34% of count / 23% of value (vs 49% / 29% in Q2) — <b>DCC, Bodycote, easyJet</b>.',
+      'Premiums ease to <span class="k">31.5%</span> (32.9% in Q2); negative premiums for <b>Evolution (−5.7%)</b> and <b>Azkoyen</b>, low ones for Ventura Offshore (3.1%) and Cirsa (3.7%).',
+      'Acquiror next-day reaction turns positive: <span class="k">+1.4%</span> in cash deals, <span class="k">+0.9%</span> in stock/mixed (vs −2.2% in Q2).',
+      '<b>7 counterbids</b> (14% of deals vs 10%); counter improvement 12% (hist. 6%), bump improvement 8.4% (hist. 9.4%).',
+      'Failure rate 8% on Q3 announcements (+3 breaks on Q2 deals), all but one at the non-definitive stage; avg P&amp;L on breaks improves to <span class="k">−0.2%</span> (counterbid outcomes, e.g. easyJet, Bodycote).',
+      'Non-annualised spreads widen YTD: average 3.10% → <b>5.08%</b>, value-weighted 4.28% → <b>6.91%</b>; median slightly tighter at 2.92%.'
     ],
     charts: {
       // Non-annualised spreads YTD: [Average, Median, Value-weighted]
       spread:  {labels:['Average','Median','Value-weighted'],
-                start:[3.1,3.36,4.28], end:[3.67,2.94,3.93], startLbl:'Start 2026', endLbl:'End June 2026'},
+                start:[3.10,3.36,4.28], end:[5.08,2.92,6.91], startLbl:'Start 2026', endLbl:'End Sept 2026'},
       // Premium dispersion: situations + quarter average
-      prem:    {labels:['Kontron','Hugo Boss','Qtr avg'], data:[4.9,4.3,33]},
+      prem:    {labels:['Evolution','Ventura Offshore','Cirsa','Qtr avg'], data:[-5.7,3.1,3.7,31.5]},
       // Consideration mix: cash / (stock+mixed), by count then by value
-      cons:    {cashCount:83, cashValue:58},
-      // Geography by value: quarter (2Q) vs YTD ; null = not disclosed
-      geo:     {labels:['UK','Italy','Germany'], q:[37,29,null], ytd:[36,24,19]}
+      cons:    {cashCount:74, cashValue:53.3},
+      // Geography by value: quarter (3Q) vs YTD ; null = not disclosed
+      geo:     {labels:['UK','Italy'], q:[34,27], ytd:[null,null]}
     },
     named: [
-      ['Definitive &gt;$10bn','BMPS · Intertek'],
-      ['Pre-event &gt;$10bn (non-definitive)','Akzo Nobel · Delivery Hero · Segro · UMG'],
-      ['Financials','BMPS · PTSB'],
-      ['Sponsor deals','Recordati · Intertek · DCC'],
-      ['Low premiums','Kontron (4.9%) · Hugo Boss (4.3%)'],
-      ['Counterbid / failure','Senior / Advent (stopped after competing offer)'],
-      ['Long-dated deals closed in quarter','JUST LN · IDOX LN'],
-      ['Interloper withdrawn','Akzo Nobel (potential offer withdrawn, mid-acquisition of Axalta)']
+      ['Definitive &gt;$10bn','Banco BPM · Segro · Delivery Hero · Banca Generali · Zabka'],
+      ['Pre-event &gt;$10bn (non-definitive)','Evonik'],
+      ['Financials (Italian banks)','Banco BPM · Banca Generali'],
+      ['Sponsor deals','DCC · Bodycote · easyJet'],
+      ['Negative / low premiums','Evolution (−5.7%) · Azkoyen (negative) · Ventura Offshore (3.1%) · Cirsa (3.7%)'],
+      ['Hostile (turned friendly)','Harworth Group'],
+      ['Breaks driven by counterbids','easyJet (EZJ) · Bodycote (BOY)']
     ]
   },
 
   /* -------------------------------- US -------------------------------- */
   us: {
     kpis: [
-      {lbl:'Announced deals',  val:'39',     sub:'−3% QoQ · +26% YoY · 73rd pct.'},
-      {lbl:'Announced value',  val:'$324bn', sub:'+74% QoQ · +297% YoY · 92nd pct.', cls:'pos'},
-      {lbl:'Average deal size',val:'$8.3bn', sub:'vs $4.7bn Q1 · +80% vs avg'},
-      {lbl:'Definitive value', val:'$252bn', sub:'32 deals · +44% QoQ'},
-      {lbl:'Strategic premium',val:'31%',    sub:'vs 40% Q1 · non-strategic 48%'},
-      {lbl:'Cash (by count)',  val:'74%',    sub:'48% by value · stock ↑ 52%'},
-      {lbl:'Non-US buyers',    val:'31%',    sub:'by count · 16% by value'},
-      {lbl:'Sponsors (value)', val:'5%',     sub:'~10-yr low · 22% by count', cls:'neg'}
+      {lbl:'Announced deals',  val:'35',     sub:'−10% QoQ · −24% YoY · 60th pct.'},
+      {lbl:'Announced value',  val:'$121bn', sub:'−62% QoQ · −60% YoY · 46th pct.', cls:'neg'},
+      {lbl:'Average deal size',val:'$3.5bn', sub:'vs $8.3bn Q2 · −25% vs avg ($4.6bn)'},
+      {lbl:'Definitive value', val:'$115bn', sub:'32 deals · −54% QoQ'},
+      {lbl:'Strategic premium',val:'30%',    sub:'vs 32% Q2 · non-strategic 34%'},
+      {lbl:'Cash (by count)',  val:'70%',    sub:'61% by value · stock ↓ 39%'},
+      {lbl:'Non-US buyers',    val:'43%',    sub:'by value · 29% by count', cls:'pos'},
+      {lbl:'Sponsors (value)', val:'23%',    sub:'vs 5% Q2 · 34% by count', cls:'pos'}
     ],
     highlights: [
-      'Flat by count but <b>very strong by value</b>: $324bn announced, at the 92nd percentile since 1998.',
-      'Heavily skewed to <b>large deals</b>: large/mid/small = 44% / 33% / 23% (hist. 21 / 46 / 33).',
-      '<b>Communications</b> = most active sector by value (31%); <b>consumer non-cyclical</b> most active by count (38%).',
-      '<b>Stock</b> rises to <span class="k">52%</span> of value (vs 33% avg since 2Q21); cash still majority by count.',
-      'Premiums: all-cash strategic <span class="k">35%</span>, all-stock strategic <span class="k">6%</span> (vs hist. 43% / 24%).',
-      'Cross-border lower: non-US 16% value / 31% count (vs 32% / 35% in Q1).',
-      'Capped annualised median spread <span class="k">3.6%</span> (vs 4.3% in Q1); EV/EBITDA multiples in line with the 2006-2026 average.',
-      'Benign backdrop: <b>0</b> price cuts, <b>0</b> shareholder opposition (definitive deals), <b>0</b> terminations in the quarter.',
-      '1H26: $510bn announced (79 deals) vs $192bn (62) in 1H25; definitive $427bn (69) vs $162bn (52).'
+      'Pause after mid-August: <b>35 deals</b> (−10% QoQ, −24% YoY) for <b>$121bn</b> (−62% / −60%) — in line with history on count (60th pct.), below on value (46th pct.).',
+      'Size mix skewed to <b>mid-size</b>: large/mid/small = 17% / 63% / 20% (hist. 21 / 46 / 33); average deal $3.5bn vs $8.3bn in Q2.',
+      'Definitive: <b>32 deals, $115bn</b> (flat count, −54% value QoQ); unsolicited only 5% of value / 9% of count (hist. 18% / 14%).',
+      '<b>Consumer non-cyclical</b> (mostly health care) led by value (39%) and count (40%); utilities the most overrepresented sector by value (+4.0σ).',
+      'Cross-border rebound: non-US buyers <span class="k">43%</span> of value / 29% of count (vs 16% / 31% in Q2; hist. 22% / 22%).',
+      'Cash back as primary currency: <span class="k">61%</span> of value, 70% of count (stock 39% / 30% vs 52% / 26% in Q2).',
+      'Premiums: strategic 30%, non-strategic 34%; all-cash strategic <span class="k">43%</span>, all-stock strategic <span class="k">13%</span> (hist. 43% / 24%).',
+      'Sponsors return: <b>23%</b> of value / 34% of count (vs 5% / 21% in Q2).',
+      'Acquirer reactions worse across the board: cash −0.6%, stock −4.3%, cash &amp; stock −11.1% (hist. +0.3% / −3.6% / −3.1%).',
+      'Events: competing bids for <b>Inmode</b> and <b>MarineMax</b>; target opposition at <b>Luxfer</b>, acquirer opposition at Centerspace–IRT; adverse terminations <b>Element Solutions–Solstice</b> and <b>Allied Gold–Zijin</b>; 0 price cuts.',
+      'Capped annualised median spread <span class="k">3.4%</span> (3.6% in Q2); main movers WBD–PSKY (settlement prospects), NSC–UNP (STB review), BHF, UNF, AAUC, IMXI, ZIM.',
+      '9M26: $630bn announced (114 deals) vs $493bn (108) in 9M25; definitive $541bn (101) vs $460bn (96).'
     ],
     charts: {
-      // Activity: 3 snapshots (e.g. 2Q25 / 1Q26 / 2Q26). Values $bn ; # announced deals.
-      act:     {labels:['2Q25','1Q26','2Q26'], announced:[82,186,324], definitive:[75,175,252], count:[31,40,39]},
+      // Activity: 3 snapshots (e.g. 3Q25 / 2Q26 / 3Q26). Values $bn ; # announced deals.
+      // 3Q25 derived from stated YoY % changes; 2Q26 as stated in the 2Q26 deck.
+      act:     {labels:['3Q25','2Q26','3Q26'], announced:[303,324,121], definitive:[295,252,115], count:[46,39,35]},
       // Premiums % by category: prev = prior quarter, cur = current, hist = average
       prem:    {labels:['Strategic','Non-strategic','All-cash strat.','All-stock strat.'],
-                prev:[40,28,50,18], cur:[31,48,35,6], hist:[35,32,43,24],
-                prevLbl:'1Q26', curLbl:'2Q26'},
+                prev:[32,48,36,6], cur:[30,34,43,13], hist:[35,32,43,24],
+                prevLbl:'2Q26', curLbl:'3Q26'},
       // Non-annualised spreads: 3 snapshots over time
-      spread:  {labels:['Dec 31 25','Apr 2 26','Jul 2 26'],
-                avg:[2.5,2.8,4.5], med:[0.9,1.1,1.2], wtd:[3.4,5.4,6.3]},
+      spread:  {labels:['Apr 2 26','Jul 2 26','Oct 2 26'],
+                avg:[2.8,4.5,3.5], med:[1.1,1.2,0.7], wtd:[5.4,6.3,4.3]},
       // Mix: share by value / by count
-      mix:     {labels:['Cash','Stock','US acq.','Non-US acq.'], value:[48,52,84,16], count:[74,26,69,31]}
+      mix:     {labels:['Cash','Stock','US acq.','Non-US acq.'], value:[61,39,57,43], count:[70,30,71,29]}
     },
     // Top 10 definitive deals: [date, target, acquirer, country, value$m, consideration, premium, deal/acq, sector, acqVote(0/1), strategic(0/1)]
-    top10Note: "74% of the quarter's definitive deal value",
+    top10Note: "69% of the quarter's definitive deal value",
     top10: [
-      ['5/18/26','Dominion Energy','NextEra Energy','US',67368,'Cash & Stock','23.7%','35%','Utilities',1,1],
-      ['5/21/26','Equity Residential','AvalonBay Communities','US',25115,'Stock','0.8%','97%','Real Estate',1,1],
-      ['6/15/26','Roku','Fox Corp','US',24885,'Cash & Stock','35.6%','95%','Communication Svcs',1,1],
-      ['4/20/26','TopBuild','QXO','US',14324,'Cash or Stock','23.1%','79%','Consumer Disc.',1,1],
-      ['6/25/26','Bio-Techne','Merck KGaA','GE',11539,'Cash','24.0%','17%','Health Care',0,1],
-      ['4/14/26','Globalstar','Amazon.com','US',10997,'Cash or Stock','55.1%','0%','Communication Svcs',0,1],
-      ['6/22/26','Apogee Therapeutics','AbbVie','US',10912,'Cash','49.5%','3%','Health Care',0,1],
-      ['6/9/26','Nuvalent','GSK plc','GB',10642,'Cash','40.1%','10%','Health Care',0,1],
-      ['6/22/26','Arcosa','CRH plc','IR',7438,'Cash','10.4%','10%','Industrials',0,1],
-      ['6/1/26','Taylor Morrison Home','Berkshire Hathaway','US',6919,'Cash','23.9%','1%','Consumer Disc.',0,1]
+      ['7/22/26','Brookfield Infrastructure Partners','Brookfield Infrastructure','CA',18712,'Stock','3.6%','371%','Utilities',1,1],
+      ['7/6/26','Element Solutions','Solstice Advanced Materials','US',12381,'Cash & Stock','14.8%','97%','Materials',1,1],
+      ['7/6/26','Crinetics Pharmaceuticals','Vertex Pharmaceuticals','US',10012,'Cash','102.2%','7%','Health Care',0,1],
+      ['8/3/26','Lantheus Holdings','Curium Pharma UK','FR',7686,'Cash','5.8%','--','Health Care',0,1],
+      ['7/22/26','Brookfield Renewable Partners','Brookfield Renewable Corp','CA',7575,'Stock','6.2%','64%','Utilities',1,1],
+      ['7/30/26','MarketAxess Holdings','Intercontinental Exchange','US',5978,'Cash','32.8%','7%','Financials',0,1],
+      ['8/3/26','Integer Holdings','KKR & Co','US',4680,'Cash','44.3%','--','Health Care',0,0],
+      ['9/14/26','Baldwin Insurance Group','Dell FO, Sequence AI Holdings','US',4578,'Cash','62.5%','--','Financials',0,0],
+      ['8/13/26','Accelerant Holdings','Thoma Bravo','US',4531,'Cash','48.8%','--','Financials',0,0],
+      ['7/20/26','LXP Industrial Trust','BAM, CPPIB','CA',3603,'Cash','4.6%','--','Real Estate',0,0]
     ],
     // Outstanding deal universe (US appendix): rows [label, #deals, %#, value$m, %val]
-    universeNote: 'as of Jul 2, 2026 · 80 deals · $742.7bn',
+    universeNote: 'as of Oct 2, 2026 · 79 deals · $631.0bn',
     universe: {
       sector: [
-        ['Basic Materials',6,'8%',53978,'7%'],
-        ['Communications',9,'11%',176431,'24%'],
-        ['Consumer, Cyclical',9,'11%',37002,'5%'],
-        ['Consumer, Non-cyclical',17,'21%',97626,'13%'],
-        ['Energy',3,'4%',20927,'3%'],
-        ['Financial',15,'19%',72457,'10%'],
-        ['Industrial',5,'6%',100413,'14%'],
-        ['Technology',10,'13%',85081,'11%'],
-        ['Utilities',6,'8%',98734,'13%'],
-        ['Total',80,'100%',742650,'100%']
+        ['Basic Materials',5,'6%',48958,'8%'],
+        ['Communications',6,'8%',172776,'27%'],
+        ['Consumer, Cyclical',6,'8%',18616,'3%'],
+        ['Consumer, Non-cyclical',20,'25%',98536,'16%'],
+        ['Energy',2,'3%',7692,'1%'],
+        ['Financial',17,'22%',42919,'7%'],
+        ['Industrial',7,'9%',93827,'15%'],
+        ['Technology',9,'11%',36233,'6%'],
+        ['Utilities',7,'9%',111415,'18%'],
+        ['Total',79,'100%',630973,'100%']
       ],
       cons: [
-        ['Cash',44,'55%',277747,'37%'],
-        ['Cash & Stock',15,'19%',293807,'40%'],
-        ['Cash or Stock',7,'9%',85284,'11%'],
-        ['Stock',14,'18%',85811,'12%'],
-        ['Total',80,'100%',742650,'100%']
+        ['Cash',45,'57%',209549,'33%'],
+        ['Cash & Stock',14,'18%',266217,'42%'],
+        ['Cash or Stock',3,'4%',79818,'13%'],
+        ['Stock',17,'22%',75389,'12%'],
+        ['Total',79,'100%',630973,'100%']
       ],
       acq: [
-        ['Strategic',67,'84%',656709,'88%'],
-        ['Non-Strategic',13,'16%',85941,'12%'],
-        ['Total',80,'100%',742650,'100%']
+        ['Strategic',64,'81%',589867,'93%'],
+        ['Non-Strategic',15,'19%',41106,'7%'],
+        ['Total',79,'100%',630973,'100%']
       ],
       appr: [
-        ['Definitive',71,'89%',672364,'91%'],
-        ['Unsolicited',9,'11%',70286,'9%'],
-        ['Total',80,'100%',742650,'100%']
+        ['Definitive',72,'91%',567611,'90%'],
+        ['Unsolicited',7,'9%',63362,'10%'],
+        ['Total',79,'100%',630973,'100%']
       ]
     }
   },
