@@ -331,45 +331,42 @@ const DATA = {
      "M&A Weekly Agenda" (+ tout article de contexte). FAITS uniquement,
      reformulés (pas de prose recopiée), sources attribuées. */
   news: {
-    asOf: '16 October 2026',
+    asOf: '26 October 2026',
     // Faits macro (HTML autorisé). Source entre <span class="mut">…</span>.
     pulse: [
       'Europe posted new quarterly highs in Q3: <b>50</b> announced public-target deals worth <b>$168.6bn</b> (vs 41 and $152.1bn in Q2), led by five definitive transactions above $10bn — Banco BPM, Segro, Delivery Hero, Banca Generali and Żabka. The average premium eased to <span class="k">31.5%</span> and sponsors\' share fell to 34% of deals (49% in Q2). <span class="mut">(UBS Special Situations)</span>',
       'US activity slowed from mid-August: Q3 delivered <b>35</b> deals for <b>$121bn</b>, down <span class="k">−62%</span> on Q2, yet nine-month volume of <b>$630bn</b> is still 28% ahead of 2025. Non-US buyers accounted for 43% of value and sponsors 23%; the capped median annualised arb spread was 3.4%. <span class="mut">(UBS Special Situations)</span>',
-      'A quieter week for fresh announcements, with bank consolidation in Italy and Germany dominating the flow and UK headlines centred on REIT activism and a possible political check on media consolidation. <span class="mut">(Bloomberg)</span>',
-      'Green light from Frankfurt: the <b>ECB</b> approved <b>UniCredit</b>\'s larger <b>Commerzbank</b> holding, allowing it to go above <b>30%</b> and up to full ownership; the <b>European Commission</b>\'s own review deadline is <b>Nov 16</b>. <span class="mut">(Bloomberg)</span>',
-      'Proxy advisers turn on Siena: <b>ISS</b> and <b>Glass Lewis</b> both advise <b>Monte dei Paschi</b> holders to vote down the bids for <b>Banco BPM</b> and <b>Banca Generali</b>, which need a <b>two-thirds</b> majority at the <b>Oct 29</b> meeting; Delfin is already tendering its <b>17.6%</b> into <b>Intesa Sanpaolo</b>\'s offer. <span class="mut">(Bloomberg)</span>',
-      'Knock-on effects: <b>Axa</b> expects its long-running distribution agreement with <b>Monte dei Paschi</b> to end next year — an example of how Italy\'s changing bank ownership reaches partners outside the country. <span class="mut">(Bloomberg)</span>',
-      'UK property activism: <b>Big Yellow</b> is reviewing all options after <b>Ancora</b> (stake above <b>4%</b>) and <b>Irenic</b> (reported ~<b>4%</b>) pushed for a sale; <b>Workspace</b> says higher rates are putting off buyers, complicating <b>Saba</b>\'s call for disposals and capital returns. <span class="mut">(Bloomberg)</span>',
-      'Media review risk: Culture Secretary <b>Lisa Nandy</b> told <b>Sky</b> and <b>ITV</b> she is minded to intervene in Sky UK\'s purchase of <b>ITV Media</b>; no final decision has been taken and the parties have until <b>Oct 20</b> to respond. <span class="mut">(Bloomberg)</span>',
-      'Integration and naming: <b>AkzoNobel</b> and <b>Axalta</b> will trade as <b>Axanzo</b> (ticker <b>AXZ</b>, NYSE and Euronext Amsterdam) once their <b>$25bn</b> merger closes, with an EU decision due <b>Oct 22</b>; <b>Schneider Electric</b> will keep the <b>PTC</b> brand and run it under a structure similar to the one used for AVEVA. <span class="mut">(Bloomberg)</span>',
-      'Carve-outs, ECM and stakes: <b>Asia Pulp &amp; Paper</b> and <b>CVC</b> are among parties eyeing <b>Essity</b>\'s consumer tissue arm (about <b>€3bn</b>); <b>Dubai Investments Park Development</b> is pressing on with what may be the UAE\'s first IPO of the year; <b>New Sparkle Roll</b> holds ~<b>11.54%</b> of <b>Bang &amp; Olufsen</b> with no current plan to sell; <b>Cityfibre</b> wants lenders to write down part of a loan and fund acquisitions. <span class="mut">(Bloomberg)</span>'
+      'Private equity set the tone of another active week: an <b>EQT</b>-led group agreed to take <b>Qiagen</b> private for about <b>€9.6bn</b> ($10.7bn), closing out years of bid speculation around the molecular-diagnostics group. <span class="mut">(Bloomberg)</span>',
+      'Back-to-back mega-buyouts: Qiagen is EQT\'s second large take-private of 2026 after its <b>£9.3bn</b> ($12.4bn) agreed deal for UK testing group <b>Intertek</b> over the summer; co-investors on Qiagen are <b>ADIA</b> and <b>CPP Investments</b>. <span class="mut">(Bloomberg)</span>',
+      'Exchanges buying data: <b>LSEG</b> will pay <b>$3.5bn</b> in cash for credit-intelligence firm <b>Octus</b>, owned by Permira, extending into higher-growth finance and private-markets niches; closing is targeted for H1 2027. <span class="mut">(Bloomberg)</span>',
+      'ECM funds M&amp;A: <b>Schneider Electric</b> placed <b>25m</b> shares at <b>€240</b> overnight, raising <b>€6bn</b> ($6.7bn) at roughly a <span class="k">5%</span> discount toward its <b>PTC</b> purchase — despite volatile French equities during street protests. <span class="mut">(Bloomberg)</span>',
+      'Siena vote this week: <b>Monte dei Paschi</b> holders meet on <b>Oct 29</b> on the <b>Banco BPM</b> and <b>Banca Generali</b> bids, which need <b>two-thirds</b> support and are opposed by both <b>ISS</b> and <b>Glass Lewis</b>; <b>Intesa Sanpaolo</b> adds <b>€0.25</b> cash per MPS share if its own offer proceeds. <span class="mut">(Bloomberg; J.P. Morgan)</span>',
+      'Commerzbank: with the <b>ECB</b> having cleared <b>UniCredit</b> to go above 30%, the European Commission (deadline <b>Nov 16</b>) and EU foreign-subsidies review are the main approvals still outstanding. <span class="mut">(Bloomberg; J.P. Morgan)</span>',
+      'Among the widest dividend-adjusted EMEA arb spreads as of Oct 19 (excluding OCI / Orascom, whose headline gap depends on withholding tax): <b>Delivery Hero</b> / Uber <span class="k">9.2%</span>, <b>Mediobanca</b> / MPS <span class="k">7.2%</span>, <b>Exail</b> / Thales <span class="k">6.9%</span>, <b>Tate &amp; Lyle</b> / Ingredion <span class="k">6.8%</span> and <b>Shelly</b> / Schneider <span class="k">6.5%</span>; <b>Evolution</b> trades about 12% above Candle Lake\'s offer. <span class="mut">(J.P. Morgan)</span>'
     ],
     // Nouveaux deals de la semaine : [cible, acquéreur/véhicule, montant, note]
     newDeals: [
-      ['Commerzbank','UniCredit — ECB clears larger stake','0.485 UCG/sh','The European Central Bank approved UniCredit\'s increased holding, so the Italian bank may now lift its stake above 30% and potentially to 100%, clearing the way for CEO Andrea Orcel to take control. The European Commission\'s review deadline is Nov 16 (Bloomberg, 9 Oct); FDI is received while antitrust, financial approvals and EU FSR remain outstanding (J.P. Morgan)'],
-      ['Banco BPM / Banca Generali','Monte dei Paschi — exchange offers, proxy advisers opposed','1.567 / 6.958 BMPS per share','ISS and Glass Lewis have both recommended that MPS shareholders reject CEO Luigi Lovaglio\'s twin bids, built as a defence against Intesa Sanpaolo\'s takeover attempt; each part of the plan needs a two-thirds majority at the Oct 29 meeting, and major holder Caltagirone has already said he will vote against. Terms per J.P. Morgan; expected close Feb 2027 if approved'],
-      ['Big Yellow Group','Activists Ancora / Irenic — strategic review','—','The UK self-storage REIT said it is considering all options after two activists pressed for a sale. Ancora Holdings, with more than 4%, opened a campaign this week arguing the shares undervalue a resilient business and says it will engage constructively with the board; Irenic Capital reportedly holds about 4% and has lobbied for months for the company to be sold'],
-      ['ITV — Media &amp; Entertainment','Sky UK — Culture Secretary minded to intervene','—','Lisa Nandy has written to Sky and ITV indicating she is minded to intervene in Sky UK\'s acquisition of ITV Media. No final decision has been made at this stage; the parties have until Oct 20 to respond to the minded-to letter'],
-      ['Essity — consumer tissue','Asia Pulp &amp; Paper / CVC among bidders','~€3bn ($3.3bn)','The Swedish hygiene group\'s consumer tissue business is drawing interest from parties including Asia Pulp &amp; Paper and CVC Capital Partners; the sale process, which could value the unit at about €3bn, is due to start this month'],
-      ['Dubai Investments Park Development','IPO — proceeding','—','The developer is moving ahead with a listing that could be the first IPO in the United Arab Emirates this year, despite the regional war']
+      ['Qiagen','EQT-led consortium (with ADIA, CPP Investments) — agreed cash offer','€46.50/sh (~€9.6bn / $10.7bn)','Qiagen\'s board has backed the all-cash bid, ending years of takeover talk around the European molecular-testing company. It is one of the two largest buyouts EQT has struck this year, alongside Intertek'],
+      ['Octus','London Stock Exchange Group — from Permira','$3.5bn cash','LSEG is buying the credit-intelligence provider to expand in faster-growing finance and private-markets segments. Octus is expected to bring in more than $300m of revenue in 2026 and to be earnings-neutral in year one; completion targeted for H1 2027'],
+      ['Schneider Electric','Accelerated placing — PTC acquisition funding','€6bn ($6.7bn)','25m new shares sold overnight at €240, about a 5% discount to the prior close, with proceeds going toward the planned purchase of PTC; the raise went ahead despite volatility in French equities'],
+      ['Banco BPM / Banca Generali','Monte dei Paschi — exchange offers, EGM Oct 29','1.567 / 6.958 BMPS per share','The MPS extraordinary meeting on Oct 29 votes on the transactions; each needs a two-thirds majority, and ISS and Glass Lewis both advised against. Financial and antitrust approvals still required; expected close Feb 2027 if approved (J.P. Morgan)'],
+      ['Iveco Group','Tata Motors — cash tender closes','€14.40/sh','The acceptance period ends Oct 26 with first settlement on Oct 30. Antitrust, FSR and defence-sale conditions are all cleared; J.P. Morgan shows expected close on Nov 6'],
+      ['Permanent TSB','BAWAG — scheme sanction','€2.97/sh','The Irish High Court hears the application to sanction the scheme on Oct 27; Irish antitrust is cleared while financial regulatory approval remains outstanding, with expected close Oct 28 (J.P. Morgan)']
     ],
     // Agenda de la semaine : [date, événement]
     catalysts: [
-      ['Oct 19','Gooch &amp; Housego — cancellation of admission to trading'],
-      ['Oct 20','Gamma Communications — court and general meetings (Epiris offer); Sky / ITV — response due on the minded-to-intervene letter'],
-      ['Oct 21','SThree — PUSU deadline (Circle8); Ashtead Technology — PUSU deadline (Ember); Bodycote — court and general meetings (Veritas offer)'],
-      ['Oct 22','Akzo Nobel / Axalta — EU Phase 1 deadline (clearance or in-depth probe)'],
-      ['Oct 23','Recordati — CVC tender offer expires; InPost — delisting; Irish Continental — deadline to give notice for the Nov 10 sanction hearing'],
-      ['Oct 26','Iveco — Tata Motors tender offer expires'],
-      ['Oct 27','Permanent TSB / BAWAG — final court sanction hearing'],
-      ['Oct 29','Monte dei Paschi — EGM on the Banco BPM and Banca Generali bids'],
-      ['Nov 5','Delivery Hero — Uber tender acceptance deadline'],
+      ['Oct 26','Iveco — end of acceptance period (Tata Motors offer); Pennon — rights issue subscription/trading period ends; Unipol — subscription period ends'],
+      ['Oct 27','Permanent TSB — scheme sanction hearing (BAWAG); Mitie — EC Phase 1 expiry (OCS); Vesuvius — RHI Magnesita PUSU deadline; Pennon — rights issue result'],
+      ['Oct 29','Monte dei Paschi — EGM on the Banco BPM and Banca Generali bids; Bodycote — EC Phase 1 decision (Veritas); Mediobanca — shareholder meeting'],
+      ['Oct 30','Iveco — first settlement; PolyPeptide — additional acceptance period ends (Samsung Biologics); Spire Healthcare — scheme meetings (Toscafund); Kesko — EGM on rights issue'],
+      ['Nov 5','Delivery Hero — Uber offer expires'],
       ['Nov 10','Irish Continental — High Court sanction hearing'],
+      ['Nov 11','easyJet — scheduled shareholder approval (Apollo scheme)'],
       ['Nov 16','European Commission deadline — UniCredit / Commerzbank'],
+      ['Nov 17','OCI — NNS cash tender expires'],
       ['Nov 23','Lottomatica — EGM on the Cirsa takeover']
     ],
-    sources: 'Facts compiled from the Bloomberg M&amp;A Weekly Agenda (N. Campling, 16 Oct 2026) for the Commerzbank, Monte dei Paschi, Axa, Big Yellow, Workspace, ITV/Sky, Akzo Nobel/Axalta, Schneider/PTC, Essity, Cityfibre, Bang &amp; Olufsen and Dubai Investments Park updates and the Oct 19–23 calendar; the Bloomberg M&amp;A Weekly Agenda (N. Campling, 9 Oct 2026) for the Akzo/Axalta value, Delfin\'s tender, the Commission\'s Commerzbank deadline and the Permanent TSB hearing; J.P. Morgan\'s EMEA risk-arb deal survey (9 Oct 2026) for offer terms and deal timetables; and the UBS Special Situations Desk\'s EMEA and US M&amp;A Review: 3Q26 (Oct 2026) for the quarterly activity statistics. Facts only — not affiliated with or endorsed by these sources.'
+    sources: 'Facts compiled from the Bloomberg M&amp;A Weekly Agenda (L. Stamm and M. Msika, 23 Oct 2026) for the Qiagen, Intertek, Octus and Schneider Electric updates and the Oct 26–30 calendar; the Bloomberg M&amp;A Weekly Agenda (N. Campling, 16 Oct 2026) for the Commerzbank and Monte dei Paschi updates and the Irish Continental hearing; the Bloomberg M&amp;A Weekly Agenda (N. Campling, 9 Oct 2026) for the Commission\'s Commerzbank deadline; J.P. Morgan\'s EMEA risk-arb deal survey (19 Oct 2026) for offer terms, spreads and deal timetables; and the UBS Special Situations Desk\'s EMEA and US M&amp;A Review: 3Q26 (Oct 2026) for the quarterly activity statistics. Facts only — not affiliated with or endorsed by these sources.'
   },
 
   /* ================================================================= */
@@ -379,6 +376,9 @@ const DATA = {
   /*  [date, target, acquirer/vehicle, value]                          */
   /* ================================================================= */
   history: [
+    ['Oct 26','Octus','London Stock Exchange Group — from Permira','$3.5bn cash'],
+    ['Oct 26','Schneider Electric','Accelerated placing — PTC acquisition funding','€6bn ($6.7bn)'],
+    ['Oct 26','Permanent TSB','BAWAG — scheme sanction','€2.97/sh'],
     ['Oct 16','Banco BPM / Banca Generali','Monte dei Paschi — exchange offers, proxy advisers opposed','1.567 / 6.958 BMPS per share'],
     ['Oct 16','Big Yellow Group','Activists Ancora / Irenic — strategic review','—'],
     ['Oct 16','Essity — consumer tissue','Asia Pulp &amp; Paper / CVC among bidders','~€3bn ($3.3bn)'],
